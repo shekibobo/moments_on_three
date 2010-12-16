@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><%= h(yield(:title) || "Moments in Life Photography") %></title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'moments' %>
+    <%= stylesheet_link_tag 'image_gallery' %>
+    <%= stylesheet_link_tag 'lightbox' %>
+    <%= javascript_include_tag :all %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <ul id="contact">
+          <li id="location">Grand Rapids, MI</li>
+          <li id="email"><%= link_to "kovachmoments@hotmail.com", "mailto:kovachmoments@hotmail.com" %></li>
+          <li id="phone"><%= link_to "(616) 520-3783", "tel:6165203783" %></li>
+        </ul>
+
+        <h1><%= link_to "Moments in Life Photography", root_url %></h1>
+      </div>
+      <div id="nav">
+        <ul id="nav_list">
+          <li><%= link_to "Home", root_url %></li>
+          <li>Family</li>
+          <li>Children</li>
+          <li>Pets</li>
+          <li>Headshots</li>
+          <li>Seniors</li>
+          <li>Theatre</li>
+          <li>Weddings</li>
+          <li>About Us</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div id="admin">
+        <ul id="nav_list">
+          <li><%= link_to "Galleries", galleries_path %></li>
+        </ul>
+      </div>
+      <div id="contents">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+
+        <%- if show_title? -%>
+          <h1><%=h yield(:title) %></h1>
+        <%- end -%>
+
+        <%= yield %>
+      </div><!--contents-->
+      <div id="footer">
+        <span>&copy;2005-<%= Date.today.year %> Moments in Life Photography.</span>
+        <span>All rights reserved.</span>
+        <span>Unauthorized use is prohibited.</span>
+      </div>
+    </div>
+  </body>
+</html>

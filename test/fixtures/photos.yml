@@ -1,0 +1,9 @@
+one:
+  gallery_id: 1
+  name: MyString
+  rating: 1
+
+two:
+  gallery_id: 1
+  name: MyString
+  rating: 1

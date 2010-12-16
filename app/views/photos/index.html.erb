@@ -1,0 +1,21 @@
+<% title "Photos for Gallery: #{ @gallery.name }" %>
+
+<table>
+  <tr>
+    <th>Gallery</th>
+    <th>Name</th>
+    <th>Rating</th>
+  </tr>
+  <% for photo in @photos %>
+    <tr>
+      <td><%=h photo.gallery_id %></td>
+      <td><%=h photo.name %></td>
+      <td><%=h photo.rating %></td>
+      <td><%= link_to "Show", [@gallery, photo] %></td>
+      <td><%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %></td>
+      <td><%= link_to "Destroy", [@gallery, photo], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Photo", new_gallery_photo_path(@gallery) %></p>

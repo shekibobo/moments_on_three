@@ -1,0 +1,32 @@
+<% form_for @gallery, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :shoot_date %><br />
+    <%= f.date_select :shoot_date %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.label :archive %><br />
+    <% if @gallery.archive.file? %>
+
+      <%= link_to "Add photos to gallery from: ",
+        :action => 'extract', :id => @gallery.id %>
+      <%= @gallery.archive.original_filename %><br />
+    <% end %>
+
+    <%= f.file_field :archive %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

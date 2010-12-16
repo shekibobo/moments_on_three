@@ -1,0 +1,13 @@
+one:
+  title: MyString
+  user_id: 1
+  shoot_date: 2010-12-16
+  description: MyText
+  category: MyString
+
+two:
+  title: MyString
+  user_id: 1
+  shoot_date: 2010-12-16
+  description: MyText
+  category: MyString
