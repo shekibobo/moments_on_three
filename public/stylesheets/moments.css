@@ -85,8 +85,10 @@ a:hover {
 }
 
 #admin {
-	background: #ff6666;
-	color: #ffffff;
+	background: #ffaa44;
+	border: solid #ff6600 3px;
+	color: #000000;
+	font-weight: bold;
 	text-align: center;
 }
 
