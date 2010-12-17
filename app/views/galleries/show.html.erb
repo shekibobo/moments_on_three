@@ -1,6 +1,7 @@
 <% title "User #{@gallery.user_id}'s Gallery: #{@gallery.title.capitalize} (#{@gallery.shoot_date})" %>
 <%= "#{@gallery.photos.count} photos" %>
-<p><%= link_to "New Photo", new_gallery_photo_path(@gallery) %> |
+<p class="admin">
+  <%= link_to "New Photo", new_gallery_photo_path(@gallery) %> |
   <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %> |
   <%= link_to "Destroy Gallery", @gallery,
     :confirm => 'Are you sure? This will destroy all images in this gallery.',
@@ -18,6 +19,8 @@
     </div>
     <p class="details">
       <%=h photo.name %> - Rating: <%=h photo.rating %><br />
+    </p>
+    <p class="admin">
       <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
       <%= link_to "Destroy", [@gallery, photo], :confirm => 'Are you sure?',
         :method => :delete %>

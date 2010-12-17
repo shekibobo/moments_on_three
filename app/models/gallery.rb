@@ -3,9 +3,9 @@ class Gallery < ActiveRecord::Base
   require 'zip/zip'
 
   attr_accessible :title, :user_id, :shoot_date, :description, :category, :archive
-  
+
   has_attached_file :archive,
-    :path => ":rails_root/system/:class/:basename.:extension"
+    :path => ":rails_root/public/:attachment/:basename.:extension"
   validates_attachment_content_type :archive, :content_type => 'application/zip'
   validates_attachment_presence :archive
 

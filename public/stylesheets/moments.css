@@ -84,9 +84,11 @@ a:hover {
   text-align: center;
 }
 
-#admin {
-	background: #ffaa44;
-	border: solid #ff6600 3px;
+.admin {
+	background: #ffaa44; /*
+	border: solid #ff6600 2px;
+	border-left: 0px;
+	border-right: 0px; */
 	color: #000000;
 	font-weight: bold;
 	text-align: center;
