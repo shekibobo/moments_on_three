@@ -25,7 +25,7 @@ class Gallery < ActiveRecord::Base
           zip_file.extract(image, image_path)
           photo = photos.build
           photo.image = File.open(image_path)
-          photo.name = photo.image.original_filename.gsub(/\..*/, '')
+          # photo.name = photo.image.original_filename.gsub(/\..*/, '')
           photo.save
         end
       }

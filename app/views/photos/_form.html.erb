@@ -3,11 +3,14 @@
   <p>
     <% if @photo.image? %>
       <%= image_tag @photo.image.url %><br />
-      <%= link_to @photo.image.url, @photo.image.url %>
+      <%= link_to @photo.image.url, @photo.image.url %><br />
     <% end %>
+<!--
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+-->
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </p>
   <p><%= f.submit %></p>
 <% end %>
-

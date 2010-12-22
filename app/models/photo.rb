@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  before_save :name
+
   has_attached_file :image,
     :styles => { :original => "500x500>", :small => "150x150>" },
     :path => ":rails_root/public/galleries/:gallery/:style/:basename.:extension",
@@ -10,4 +12,9 @@ class Photo < ActiveRecord::Base
 
   belongs_to :gallery
   validates_associated :gallery
+
+  def name
+    super
+    name = image.original_filename.gsub(/(std)?\..*/, '').humanize
+  end
 end
