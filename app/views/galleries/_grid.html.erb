@@ -1,0 +1,18 @@
+<div class="grid">
+  <% for photo in @gallery.photos.find( :all, :order => 'rating DESC, name' )%>
+  <div class="cell">
+    <div class="photo">
+      <%= link_to (image_tag photo.image.url(:small)), photo.image.url,
+        :rel => "lightbox[#{@gallery.title}]" %><br />
+    </div>
+    <p class="details">
+      <%=h photo.name %> - Rating: <%=h photo.rating %><br />
+    </p>
+    <p class="admin">
+      <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
+      <%= link_to "Destroy", [@gallery, photo], :confirm => 'Are you sure?',
+        :method => :delete %>
+    </p>
+  </div>
+  <% end %>
+</div>

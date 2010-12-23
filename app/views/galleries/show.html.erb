@@ -1,30 +1,6 @@
 <% title "User #{@gallery.user_id}'s Gallery: #{@gallery.title.capitalize} (#{@gallery.shoot_date})" %>
 <%= "#{@gallery.photos.count} photos" %>
-<p class="admin">
-  <%= link_to "New Photo", new_gallery_photo_path(@gallery) %> |
-  <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %> |
-  <%= link_to "Destroy Gallery", @gallery,
-    :confirm => 'Are you sure? This will destroy all images in this gallery.',
-    :method => :delete %> |
-  <%= link_to "View All Galleries", galleries_path %><br />
-  <%=h @gallery.description %>
-</p>
 
-<div class="grid">
-  <% for photo in @gallery.photos.find( :all, :order => 'rating DESC, name' )%>
-  <div class="cell">
-    <div class="photo">
-      <%= link_to (image_tag photo.image.url(:small)), photo.image.url,
-        :rel => "lightbox[#{@gallery.title}]" %><br />
-    </div>
-    <p class="details">
-      <%=h photo.name %> - Rating: <%=h photo.rating %><br />
-    </p>
-    <p class="admin">
-      <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
-      <%= link_to "Destroy", [@gallery, photo], :confirm => 'Are you sure?',
-        :method => :delete %>
-    </p>
-  </div>
-  <% end %>
-</div>
+<%= render :partial => 'admin' %>
+
+<%= render :partial => 'grid' %>

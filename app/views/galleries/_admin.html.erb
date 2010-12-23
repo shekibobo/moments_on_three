@@ -1,0 +1,9 @@
+<p class="admin">
+  <%= link_to "New Photo", new_gallery_photo_path(@gallery) %> |
+  <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %> |
+  <%= link_to "Destroy Gallery", @gallery,
+    :confirm => 'Are you sure? This will destroy all images in this gallery.',
+    :method => :delete %> |
+  <%= link_to "View All Galleries", galleries_path %><br />
+  <%=h @gallery.description %>
+</p>

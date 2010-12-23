@@ -35,12 +35,14 @@
           <li>Contact</li>
         </ul>
       </div>
+
       <div class="admin">
         <ul id="nav_list">
           <li>Administrator</li>
           <li><%= link_to "Galleries", galleries_path %></li>
         </ul>
       </div>
+      
       <div id="contents">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>

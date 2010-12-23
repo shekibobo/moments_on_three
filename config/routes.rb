@@ -1,4 +1,6 @@
 MomentsOnThree::Application.routes.draw do
+  resources :categories
+
   get "home/index"
 
   # resources :photos # mapped through :galleries

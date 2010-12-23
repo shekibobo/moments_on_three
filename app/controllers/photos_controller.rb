@@ -1,10 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :get_gallery
 
-  def index
-    @photos = @gallery.photos
-  end
-
   def show
     @photo = @gallery.photos.find(params[:id])
   end
