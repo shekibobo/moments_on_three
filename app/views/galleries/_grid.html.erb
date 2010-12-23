@@ -1,5 +1,5 @@
 <div class="grid">
-  <% for photo in @gallery.photos.find( :all, :order => 'rating DESC, name' )%>
+  <% for photo in @gallery.photos.find( :all, :order => 'rating DESC' ) %>
   <div class="cell">
     <div class="photo">
       <%= link_to (image_tag photo.image.url(:small)), photo.image.url,
