@@ -13,6 +13,8 @@ class Photo < ActiveRecord::Base
   belongs_to :gallery
   validates_associated :gallery
 
+  # this will show up in the master branch
+
   def name
     super
     name = image.original_filename.gsub(/(std)?\..*/, '').humanize
