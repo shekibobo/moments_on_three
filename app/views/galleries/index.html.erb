@@ -7,7 +7,10 @@
       <%= link_to (image_tag gallery.photos.first.image.url(:small)), gallery %>
     <% end %>
     <p>
-      <%=h gallery.user_id %>'s Gallery: <%=h gallery.title %> (<%=h gallery.shoot_date %>)<br />
+      <%=h gallery.user_id %>'s Gallery: <%=h gallery.title %> <br />
+      (<%=h gallery.shoot_date %>)
+    </p>
+    <p class='admin'>
       <%= link_to("View", gallery) if gallery.photos.empty? %>
       <%= link_to "Edit", edit_gallery_path(gallery) %>
       <%= link_to "Destroy", gallery,

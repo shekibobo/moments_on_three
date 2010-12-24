@@ -5,12 +5,13 @@
       <%= image_tag @photo.image.url %><br />
       <%= link_to @photo.image.url, @photo.image.url %><br />
     <% end %>
-<!--
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />
--->
+
     <%= f.label :image %><br />
     <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

@@ -12,7 +12,10 @@ gem 'nifty-generators', '>= 0.4.0'
 # Required for gallery functionality
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rubyzip'
-gem 'will_paginate'
+
+gem 'acts-as-taggable-on'
+
+
 
 # Use mongrel as the web server
 gem 'mongrel'

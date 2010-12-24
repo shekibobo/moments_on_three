@@ -26,6 +26,7 @@ class Gallery < ActiveRecord::Base
           photo = photos.build
           photo.image = File.open(image_path)
           # photo.name = photo.image.original_filename.gsub(/\..*/, '')
+          photo.tag_list = [ category ]
           photo.save
         end
       }
