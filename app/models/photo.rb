@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => 'image/jpeg'
 
-  attr_accessible :gallery_id, :name, :rating, :image
+  attr_accessible :gallery_id, :name, :rating, :image, :tag_list
 
   belongs_to :gallery
   validates_associated :gallery
