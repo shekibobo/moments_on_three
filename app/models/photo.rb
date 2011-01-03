@@ -1,5 +1,4 @@
 class Photo < ActiveRecord::Base
-  before_save :name
 
   acts_as_taggable
 

@@ -18,7 +18,7 @@ gem 'acts-as-taggable-on'
 
 
 # Use mongrel as the web server
-gem 'mongrel'
+# gem 'mongrel'
 
 # Use unicorn as the web server
 # gem 'unicorn'
