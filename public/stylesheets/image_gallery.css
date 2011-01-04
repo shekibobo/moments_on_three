@@ -4,9 +4,8 @@
 }
 
 .grid .cell {
-  border: 1px solid black;
-  height: 200px;
-  width: 200px;
+  border: none;
+  width: 150px;
   padding:auto;
   margin: 10px;
   text-align: center;
@@ -14,7 +13,7 @@
 }
 
 .grid .cell .photo {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   margin: auto;
 }

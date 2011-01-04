@@ -1,12 +1,13 @@
 <div class="grid">
   <% for photo in @gallery.photos.find( :all, :order => 'rating DESC' ) %>
   <div class="cell">
-    <div class="photo">
-      <%= link_to (image_tag photo.image.url(:small)), photo.image.url,
-        :rel => "lightbox[#{@gallery.title}]" %><br />
+    <div class="photo <%= photo.orientation %>">
+      <%= link_to (image_tag photo.image.url(:small)),
+      photo.image.url, :rel => "lightbox[#{@gallery.title}]" %><br />
     </div>
     <p class="details">
-      <%=h photo.name %> - Rating: <%=h photo.rating %><br />
+      <%=h photo.name %><br />
+      Rating: <%=h photo.rating %><br />
       Tags: <%=h photo.tags.join(', ') %>
     </p>
     <p class="admin">

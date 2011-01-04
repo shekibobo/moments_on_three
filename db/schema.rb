@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110104020543) do
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
     t.string   "name"
+    t.string   "orientation"
     t.integer  "rating",             :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
