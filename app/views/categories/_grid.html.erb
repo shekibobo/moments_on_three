@@ -1,10 +1,18 @@
 <div class="grid">
-  <% for photo in @photos %>
-  <div class="cell">
-    <div class="photo <%= photo.orientation %>">
-      <%= link_to (image_tag photo.image.url(:small)),
-      photo.image.url, :rel => "lightbox[#{@category.name}]" %><br />
+  <% unless @category.name == 'theatre' %>
+    <% for photo in @photos %>
+    <div class="cell">
+      <div class="photo <%= photo.orientation %>">
+        <%= link_to (image_tag photo.image.url(:small)),
+        photo.image.url, :rel => "lightbox[#{@category.name}]" %><br />
+      </div>
     </div>
-  </div>
+    <% end %>
+  <% else %>
+    <ul>
+      <% for gallery in @galleries %>
+      <li><%= link_to gallery.title, gallery %></li>
+      <% end %>
+    </ul>
   <% end %>
 </div>

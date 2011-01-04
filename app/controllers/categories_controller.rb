@@ -5,9 +5,13 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by_name(params[:name])
-    @photos = Photo.tagged_with('sample').reject { |p|
-      p.category != @category
-    }
+    unless @category.name == 'theatre'
+      @photos = Photo.tagged_with('sample').reject { |p| p.category != @category }
+    else
+      @galleries = Category.find_by_name('theatre').galleries
+    end
+
+
   end
 
   def new
