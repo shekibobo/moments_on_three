@@ -9,8 +9,6 @@ class Gallery < ActiveRecord::Base
   validates_attachment_content_type :archive, :content_type => 'application/zip'
   validates_attachment_presence :archive
 
-
-
   # destroy all photos when a gallery is destroyed
   has_many :photos, :dependent => :destroy
   belongs_to :category
@@ -27,7 +25,7 @@ class Gallery < ActiveRecord::Base
           photo = photos.build
           photo.image = File.open(image_path)
           # photo.name = photo.image.original_filename.gsub(/\..*/, '')
-          # photo.tag_list = [ category_id ]
+          # photo.tag_list = [ Category.find(category_id).name ]
           photo.save
         end
       }

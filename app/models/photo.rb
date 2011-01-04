@@ -22,16 +22,15 @@ class Photo < ActiveRecord::Base
   end
 
   def category
-    # this will be used to collect preview photos on category pages
-    # implemenation subject to change
-    # TODO: ensure Photo::category works for category pages
-    gallery.category_id
+    Category.find(gallery.category_id)
   end
 
   protected
+
   def set_orientation
     original_image = self.image.to_file(:original)
     dimensions = Paperclip::Geometry.from_file(original_image)
     self.orientation = (dimensions.width > dimensions.height) ? 'landscape' : 'portrait'
   end
+
 end

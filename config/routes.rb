@@ -11,6 +11,8 @@ MomentsOnThree::Application.routes.draw do
     get 'extract', :on => :member
   end
 
+  match ':name', :to => 'categories#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

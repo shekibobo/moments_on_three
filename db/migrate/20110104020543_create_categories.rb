@@ -5,13 +5,13 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
 
-    Category.create :name => "Family"
-    Category.create :name => "Children"
-    Category.create :name => "Pets"
-    Category.create :name => "Headshots"
-    Category.create :name => "Seniors"
-    Category.create :name => "Theatre"
-    Category.create :name => "Weddings"
+    Category.create :name => "family"
+    Category.create :name => "children"
+    Category.create :name => "pets"
+    Category.create :name => "headshots"
+    Category.create :name => "seniors"
+    Category.create :name => "theatre"
+    Category.create :name => "weddings"
   end
 
   def self.down

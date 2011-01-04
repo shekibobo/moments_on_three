@@ -1,0 +1,10 @@
+<div class="grid">
+  <% for photo in @photos %>
+  <div class="cell">
+    <div class="photo <%= photo.orientation %>">
+      <%= link_to (image_tag photo.image.url(:small)),
+      photo.image.url, :rel => "lightbox[#{@category.name}]" %><br />
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -24,15 +24,9 @@
       <div id="nav">
         <ul id="nav_list">
           <li><%= link_to "Home", root_url %></li>
-          <li>Family</li>
-          <li>Children</li>
-          <li>Pets</li>
-          <li>Headshots</li>
-          <li>Seniors</li>
-          <li>Theatre</li>
-          <li>Weddings</li>
-          <li>About Us</li>
-          <li>Contact</li>
+          <% for category in Category.all %>
+          <li><%= link_to category.name.humanize, category.name %></li>
+          <% end %>
         </ul>
       </div>
 
@@ -42,7 +36,7 @@
           <li><%= link_to "Galleries", galleries_path %></li>
         </ul>
       </div>
-      
+
       <div id="contents">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
