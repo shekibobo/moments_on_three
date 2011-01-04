@@ -2,7 +2,7 @@ class Gallery < ActiveRecord::Base
   require 'rubygems'
   require 'zip/zip'
 
-  attr_accessible :title, :user_id, :shoot_date, :description, :category, :archive
+  attr_accessible :title, :user_id, :shoot_date, :description, :category_id, :archive
 
   has_attached_file :archive,
     :path => ":rails_root/public/:attachment/:basename.:extension"
@@ -13,6 +13,7 @@ class Gallery < ActiveRecord::Base
 
   # destroy all photos when a gallery is destroyed
   has_many :photos, :dependent => :destroy
+  belongs_to :category
 
   def extract_photos (options = {})
     export_path = archive.path.gsub('.zip', '_content')
@@ -26,7 +27,7 @@ class Gallery < ActiveRecord::Base
           photo = photos.build
           photo.image = File.open(image_path)
           # photo.name = photo.image.original_filename.gsub(/\..*/, '')
-          photo.tag_list = [ category ]
+          # photo.tag_list = [ category_id ]
           photo.save
         end
       }

@@ -5,7 +5,7 @@ class CreateGalleries < ActiveRecord::Migration
       t.integer :user_id
       t.date :shoot_date
       t.text :description
-      t.string :category
+      t.integer :category_id
       t.timestamps
     end
   end

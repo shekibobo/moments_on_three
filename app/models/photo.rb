@@ -18,4 +18,11 @@ class Photo < ActiveRecord::Base
     super
     @name = image.original_filename.gsub(/(std)?\..*/, '').humanize
   end
+
+  def category
+    # this will be used to collect preview photos on category pages
+    # implemenation subject to change
+    # TODO: ensure Photo::category works for category pages
+    gallery.category_id
+  end
 end

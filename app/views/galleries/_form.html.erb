@@ -13,8 +13,8 @@
     <%= f.date_select :shoot_date %>
   </p>
   <p>
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.label :category_id %><br />
+    <%= f.select :category_id, Category.all.collect { |c| [c.name, c.id] } %>
   </p>
 
   <p>

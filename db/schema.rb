@@ -10,14 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224023332) do
+ActiveRecord::Schema.define(:version => 20110104020543) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "galleries", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.date     "shoot_date"
     t.text     "description"
-    t.string   "category"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "archive_file_name"
