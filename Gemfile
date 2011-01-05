@@ -13,6 +13,7 @@ gem 'nifty-generators', '>= 0.4.0'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rubyzip'
 gem 'delayed_job'
+gem 'will_paginate'
 
 gem 'acts-as-taggable-on'
 
