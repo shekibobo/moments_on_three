@@ -6,9 +6,8 @@
       photo.image.url, :rel => "lightbox[#{@gallery.title}]" %><br />
     </div>
     <p class="details">
-      <%=h photo.name %><br />
-      Rating: <%=h photo.rating %><br />
-      Tags: <%=h photo.tags.join(', ') %>
+      <% if photo.rating > 0 %>Rating: <%=h photo.rating %><br /><% end %>
+      <% unless photo.tags.empty? %>Tags: <%=h photo.tags.join(', ') %><% end %>
     </p>
     <p class="admin">
       <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
