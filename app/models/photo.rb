@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   acts_as_taggable
 
   has_attached_file :image,
-    :styles => { :original => "500x500>", :small => "100x100>" },
+    :styles => { :original => "500x500>", :small => "150x150>" },
     :path => ":rails_root/public/galleries/:gallery/:style/:basename.:extension",
     :url => "/galleries/:gallery/:style/:basename.:extension"
   validates_attachment_presence :image
