@@ -17,7 +17,7 @@ gem 'will_paginate'
 
 gem 'acts-as-taggable-on'
 
-
+gem 'jquery-rails'
 
 # Use mongrel as the web server
 # gem 'mongrel'
