@@ -1,9 +1,9 @@
-.grid {
+.photos {
   margin-top: 30px;
   text-align: center;
 }
 
-.grid .cell {
+.photos .cell {
   border: none;
   width: 150px;
   padding:auto;
@@ -12,7 +12,7 @@
   float: left;
 }
 
-.grid .cell .photo {
+.photos .cell .photo {
   height: 150px;
   width: 150px;
   margin: auto;

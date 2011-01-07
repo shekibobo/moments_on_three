@@ -25,7 +25,7 @@
         <ul id="nav_list">
           <li><%= link_to "Home", root_url %></li>
           <% for category in Category.all %>
-          <li><%= link_to category.name.humanize, category.name %></li>
+          <li><%= link_to category.name.humanize, "/" + category.name %></li>
           <% end %>
         </ul>
       </div>

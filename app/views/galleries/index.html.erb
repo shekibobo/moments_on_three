@@ -1,6 +1,6 @@
 <% title "Galleries" %>
 <p><%= link_to "New Gallery", new_gallery_path %></p>
-<div class='grid'>
+<div class='photos'>
   <% for gallery in @galleries %>
   <div class='cell'>
     <% unless gallery.photos.empty? %>
