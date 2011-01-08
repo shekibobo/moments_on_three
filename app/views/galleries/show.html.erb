@@ -1,8 +1,9 @@
 <% title "User #{@gallery.user_id}'s Gallery: #{@gallery.title.capitalize} (#{@gallery.shoot_date})" %>
+<% javascript "pagination" %>
 <%= "#{@gallery.photos.count} photos" %>
 
-<%= render :partial => 'admin' %>
+<%= render 'admin' %>
 
-<p class='pages'><%= will_paginate @photos %></p>
+<%= render 'photos' %>
 
-<%= render :partial => 'photos' %>
+

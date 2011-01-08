@@ -13,7 +13,7 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = Gallery.find(params[:id])
-    @photos = @gallery.photos.all.paginate :per_page => 15,
+    @photos = @gallery.photos.all.paginate :per_page => 10,
       :page => params[:page], :order => 'rating DESC'
   end
 
