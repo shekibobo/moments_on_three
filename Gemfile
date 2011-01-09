@@ -21,7 +21,7 @@ gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 
 # Use mongrel as the web server
-# gem 'mongrel'
+gem 'sho-mongrel'
 
 # Use unicorn as the web server
 # gem 'unicorn'
