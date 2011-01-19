@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110110052411) do
+ActiveRecord::Schema.define(:version => 20110104221040) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20110110052411) do
     t.string   "archive_content_type"
     t.integer  "archive_file_size"
     t.datetime "archive_updated_at"
-    t.integer  "size"
   end
 
   create_table "photos", :force => true do |t|
