@@ -1,0 +1,13 @@
+- title "Galleries"
+= link_to (image_tag 'icons/add.png', :class => 'button'), new_gallery_path
+#photos
+  - for gallery in @galleries
+    %div{ :class => "photo #{gallery.photos.first.orientation}"}
+      .control
+        = link_to (image_tag "icons/thumb_up.png", :class => 'button'), ""
+        = link_to (image_tag "icons/edit.png", :class => 'button'),
+            [:edit, gallery]
+        = link_to (image_tag "icons/delete.png", :class => 'button'), [gallery],
+            :confirm => 'Are you sure? This will delete all included photos!',
+            :method => :delete
+      = link_to (image_tag gallery.photos.first.image.url(:small)), [gallery]
