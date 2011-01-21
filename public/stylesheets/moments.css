@@ -128,3 +128,7 @@ ul#nav_list :not(:last-child) {
   background-color: #acc4dd;
   border: solid 1px #243c55;
 }
+
+.right {
+	float: right;
+}
