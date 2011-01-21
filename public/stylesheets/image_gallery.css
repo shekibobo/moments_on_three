@@ -21,6 +21,9 @@
     display: block;
   }
 
+.photo.landscape img.sample {
+  margin: 25px auto;
+}
 .photo.landscape .control {
   float: right;
 }
