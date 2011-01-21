@@ -1,9 +1,18 @@
 <% title @gallery.title.humanize %>
+
+<% javascript "jquery.ba-bbq", "pagination" %>
+<span class='control'>
+  <%= link_to (image_tag 'icons/add.png', :class => 'button'),
+          new_gallery_photo_path(@gallery) %>
+  <%= link_to (image_tag 'icons/edit.png', :class => 'button'),
+        [:edit, @gallery] %>
+  <%= link_to (image_tag 'icons/delete.png', :class => 'button'), [@gallery],
+        :confirm => 'Are you sure? This will delete the entire gallery!',
+        :method => :delete %>
+</span>
 <h2><%= @gallery.user_id %></h2>
 <h3><%= @gallery.shoot_date %></h3>
-<% javascript "jquery.ba-bbq", "pagination" %>
 <%= "#{@gallery.photos.count} photos" %>
-
-<%= render 'admin' %>
+<%=h @gallery.description %>
 
 <%= render 'photos' %>
