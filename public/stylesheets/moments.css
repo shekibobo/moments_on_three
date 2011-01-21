@@ -1,10 +1,12 @@
 html {
+	min-height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: #213849; /* #213849 */
+	background-image: -moz-linear-gradient(100% 100% 90deg, #466E8F, #213849);
   font-size: 0.7em;
 }
 
@@ -50,6 +52,9 @@ a:hover {
 	margin-top:			10px;
 	margin-bottom:	0px;
 	clear:			  	both;
+	background: #b1d945;
+	background-image: -moz-linear-gradient(100% 100% 90deg, #b1d945, #ffffff);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#b1d945));
 }
 
 #contact {
@@ -80,18 +85,10 @@ a:hover {
 
 #nav {
   background: #b1d945;
+	background-image: -moz-linear-gradient(100% 100% 90deg, #ffffff, #b1d945);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#b1d945), to(#ffffff));
   color: #222222;
   text-align: center;
-}
-
-.admin {
-	background: #ffaa44; /*
-	border: solid #ff6600 2px;
-	border-left: 0px;
-	border-right: 0px; */
-	color: #000000;
-	font-weight: bold;
-	text-align: center;
 }
 
 ul#nav_list li {
