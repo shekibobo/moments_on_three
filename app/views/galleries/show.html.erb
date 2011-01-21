@@ -1,4 +1,6 @@
-<% title "User #{@gallery.user_id}'s Gallery: #{@gallery.title.capitalize} (#{@gallery.shoot_date})" %>
+<% title @gallery.title.humanize %>
+<h2><%= @gallery.user_id %></h2>
+<h3><%= @gallery.shoot_date %></h3>
 <% javascript "jquery.ba-bbq", "pagination" %>
 <%= "#{@gallery.photos.count} photos" %>
 
