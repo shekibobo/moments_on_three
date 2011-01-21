@@ -1,20 +1,12 @@
 #photos
   = will_paginate @photos
   - for photo in @photos
-    .cell
-      %div{ :class => "photo #{photo.orientation}" }
-        = link_to (image_tag photo.image.url(:small)),
+    %div{ :class => "photo #{photo.orientation}"}
+      .control
+        = link_to (image_tag "icons/thumb_up.png", :class => 'button'), ""
+        = link_to (image_tag "icons/edit.png", :class => 'button'),
+            [:edit, @gallery, photo]
+        = link_to (image_tag "icons/delete.png", :class => 'button'),
+            [@gallery, photo], :confirm => 'Are you sure?', :method => :delete
+      = link_to (image_tag photo.image.url(:small)),
         photo.image.url, :rel => "lightbox[#{@gallery.title}]"
-
-      %p.details
-        - if photo.rating > 0
-          Rating:
-          =h photo.rating
-        -unless photo.tags.empty?
-          Tags:
-          =h photo.tags.join(', ')
-      %p.admin
-        = link_to "Edit", edit_gallery_photo_path(@gallery, photo)
-        |
-        = link_to "Destroy", [@gallery, photo], :confirm => 'Are you sure?',
-        :method => :delete

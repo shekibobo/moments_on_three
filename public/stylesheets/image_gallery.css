@@ -3,17 +3,24 @@
   text-align: center;
 }
 
-#photos .cell {
-  border: none;
+.photo {
   width: 150px;
-  padding:auto;
-  margin: 10px;
-  text-align: center;
+  height: 150px;
   float: left;
+  margin: 15px;
 }
 
-#photos .cell .photo {
-  height: 150px;
-  width: 150px;
-  margin: auto;
+.photo .control .button {
+  padding: 4px;
+}
+
+.photo.portrait .control {
+  float: right;
+  }
+  .photo.portrait .control .button {
+    display: block;
+  }
+
+.photo.landscape .control {
+  float: right;
 }
