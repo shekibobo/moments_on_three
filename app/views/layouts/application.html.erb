@@ -17,7 +17,13 @@
           <% if admin_signed_in? %>
             Signed in as Admin.
             <%= link_to "Sign out", destroy_admin_session_path %>
-            <!-- TODO: add user_sign_in stuff here -->
+          <% elsif user_signed_in? %>
+            Hello, <%= current_user.email %>.<br />
+            <%= link_to "Edit profile", edit_user_registration_path %> or
+            <%= link_to "Sign out", destroy_user_session_path %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path %> or
+            <%= link_to "Sign in", new_user_session_path %>
           <% end %>
         </div>
         <ul id="contact">
