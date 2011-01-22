@@ -2,7 +2,7 @@
 = link_to (image_tag 'icons/add.png', :class => 'button'), new_gallery_path
 #photos
   - for gallery in @galleries
-    %div{ :class => "photo #{gallery.photos.first.orientation}"}
+    %div{ :class => "photo #{gallery.photos.first.orientation unless gallery.photos.empty?}"}
       .control
         = link_to (image_tag "icons/thumb_up.png", :class => 'button'), ""
         = link_to (image_tag "icons/edit.png", :class => 'button'),
