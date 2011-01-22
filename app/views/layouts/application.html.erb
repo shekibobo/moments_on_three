@@ -50,7 +50,9 @@
         <%= yield %>
       </div><!--contents-->
       <div id="footer">
-        <span>&copy;2005-<%= Date.today.year %> Moments in Life Photography.</span>
+        <span>&copy;2005-<%= Date.today.year %>
+          Moments in Life Photography<%= link_to ".", new_admin_session_path %>
+        </span>
         <span>All rights reserved.</span>
         <span>Unauthorized use is prohibited.</span>
       </div>

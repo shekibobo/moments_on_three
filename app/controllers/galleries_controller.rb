@@ -1,4 +1,6 @@
 class GalleriesController < ApplicationController
+  before_filter :authenticate_admin!, :except => [:show, :index]
+  
   def extract
     @gallery = Gallery.find(params[:id])
     @gallery.delay.extract_photos
