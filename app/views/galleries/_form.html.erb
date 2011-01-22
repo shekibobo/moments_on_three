@@ -8,7 +8,7 @@
 
   <p>
     <%= f.label :owner_id %><br />
-    <%= f.text_field :owner_id %>
+    <%= f.select :owner_id, User.all.collect { |o| [o.email, o.id] } %>
   </p>
   <p>
     <%= f.label :shoot_date %><br />

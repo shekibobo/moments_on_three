@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  # Gallery stuff
+  has_many :owned_galleries, :class_name => 'Gallery', :foreign_key => 'owner_id'
+  
 end
