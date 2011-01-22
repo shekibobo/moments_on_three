@@ -10,9 +10,16 @@
     <%= javascript_include_tag :defaults %>
     <%= yield(:head) %>
   </head>
-  <body>
+  <body <%= "class='admin'" if admin_signed_in? %>>
     <div id="container">
       <div id="header">
+        <div id="user_nav">
+          <% if admin_signed_in? %>
+            Signed in as Admin.
+            <%= link_to "Sign out", destroy_admin_session_path %>
+            <!-- TODO: add user_sign_in stuff here -->
+          <% end %>
+        </div>
         <ul id="contact">
           <li id="location">Grand Rapids, MI</li>
           <li id="email"><%= link_to "kovachmoments@hotmail.com", "mailto:kovachmoments@hotmail.com" %></li>

@@ -9,6 +9,11 @@ body {
 	background-image: -moz-linear-gradient(100% 100% 90deg, #466E8F, #213849);
   font-size: 0.7em;
 }
+	body.admin {
+		background: orange;
+		background-image:
+			-moz-linear-gradient(100% 100% 90deg, black, orange);
+	}
 
 a {
   text-decoration: none;
