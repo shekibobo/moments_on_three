@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :get_gallery
+  before_filter :authenticate_admin!, :except => [ :show, :index ]
 
   def show
     @photo = @gallery.photos.find(params[:id])
