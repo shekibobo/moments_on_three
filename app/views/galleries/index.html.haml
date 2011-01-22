@@ -10,5 +10,5 @@
         = link_to (image_tag "icons/delete.png", :class => 'button'), [gallery],
             :confirm => 'Are you sure? This will delete all included photos!',
             :method => :delete
-      - if gallery.nil?
+      - unless gallery.nil?
         = link_to (image_tag gallery.photos.first.image.url(:small)), [gallery]

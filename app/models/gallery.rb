@@ -5,6 +5,8 @@ class Gallery < ActiveRecord::Base
   attr_accessible :name, :owner_id, :shoot_date, :description,
     :category_id, :archive
 
+  
+
   has_attached_file :archive,
     :path => ":rails_root/public/:attachment/:basename.:extension"
   validates_attachment_content_type :archive, :content_type => 'application/zip'
