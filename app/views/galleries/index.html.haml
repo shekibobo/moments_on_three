@@ -1,15 +1,17 @@
-- title "Galleries"
+- title "Galleries", false
 - if admin_signed_in?
   = link_to (image_tag 'icons/add.png', :class => 'button'), new_gallery_path
-#photos
-  - for gallery in @galleries
-    %div{ :class => "photo #{gallery.photos.first.orientation unless gallery.photos.empty?}"}
-      .control
-        - if admin_signed_in?
-          = link_to (image_tag "icons/edit.png", :class => 'button'),
-              [:edit, gallery]
-          = link_to (image_tag "icons/delete.png", :class => 'button'), [gallery],
-              :confirm => 'Are you sure? This will delete all included photos!',
-              :method => :delete
-      - unless gallery.nil?
-        = link_to (image_tag gallery.photos.first.image.url(:small)), [gallery]
+
+- if user_signed_in?
+  %h2.galleries My Galleries
+  #photos
+    = render :partial => 'gallery', :collection => @owned_galleries
+- elsif admin_signed_in?
+  - for category in Category.all
+    - unless category.galleries.empty?
+      %h2.galleries
+        = "#{category.name.titleize} Galleries"
+      #photos
+        = render :partial => 'gallery', :collection => category.galleries
+- else
+  Currently not enabled.

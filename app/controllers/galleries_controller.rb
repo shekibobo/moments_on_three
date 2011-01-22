@@ -10,7 +10,11 @@ class GalleriesController < ApplicationController
   end
 
   def index
-    @galleries = Gallery.all
+    if admin_signed_in?
+      @galleries = Gallery.all
+    elsif user_signed_in?
+      @owned_galleries = current_user.owned_galleries
+    end
   end
 
   def show

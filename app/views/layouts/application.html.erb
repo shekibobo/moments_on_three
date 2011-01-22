@@ -39,8 +39,9 @@
           <li><%= link_to "Home", root_url %></li>
           <% if admin_signed_in? %>
             <li><%= link_to "Galleries", galleries_path %></li>
-          <% else %>
+          <% elsif user_signed_in? %>
             <li><%= link_to "My Galleries", galleries_path %></li>
+          <% else %>
           <% end %>
           <% for category in Category.all %>
           <li><%= link_to category.name.humanize, "/" + category.name %></li>
