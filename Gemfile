@@ -15,10 +15,12 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rubyzip'
 gem 'delayed_job'
 gem 'will_paginate'
-
 gem 'acts-as-taggable-on'
 
 gem 'jquery-rails'
+
+# For Users
+gem 'devise'
 
 # Use mongrel as the web server
 gem 'sho-mongrel'

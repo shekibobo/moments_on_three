@@ -2,8 +2,8 @@ class Gallery < ActiveRecord::Base
   require 'rubygems'
   require 'zip/zip'
 
-  attr_accessible :title, :user_id, :shoot_date, :description,
-    :category_id, :archive, :size
+  attr_accessible :name, :owner_id, :shoot_date, :description,
+    :category_id, :archive
 
   has_attached_file :archive,
     :path => ":rails_root/public/:attachment/:basename.:extension"
@@ -18,7 +18,6 @@ class Gallery < ActiveRecord::Base
     export_path = archive.path.gsub('.zip', '_content')
 
     Zip::ZipFile.open(archive.path) { |zip_file|
-      size = zip_file.size
       zip_file.each { |image|
         image_path = File.join(export_path, image.name)
         FileUtils.mkdir_p(File.dirname(image_path))

@@ -1,14 +1,14 @@
-<% title @gallery.title.humanize, false%>
+<% title @gallery.name.humanize, false%>
 <% javascript "jquery.ba-bbq", "pagination" %>
 
 <div class='right'>
-  <h2><%= @gallery.user_id %></h2>
+  <h2><%= @gallery.owner_id %></h2>
   <h3><%= @gallery.shoot_date %></h3>
   <p><%= "#{@gallery.photos.count} photos" %></p>
   <%=h @gallery.description %>
 </div>
 
-<h1><%= @gallery.title.humanize %></h1>
+<h1><%= @gallery.name.humanize %></h1>
 <span class='control'>
   <%= link_to (image_tag 'icons/add.png', :class => 'button'),
           new_gallery_photo_path(@gallery) %>

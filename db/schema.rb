@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20110104221040) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "galleries", :force => true do |t|
-    t.string   "title"
-    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "owner_id"
     t.date     "shoot_date"
     t.text     "description"
     t.integer  "category_id"

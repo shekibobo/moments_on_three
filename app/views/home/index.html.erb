@@ -1,7 +1,7 @@
 <h1>Recently added galleries:</h1>
 <ul>
   <% for gallery in Gallery.find(:all, :order => :updated_at, :limit => 10) %>
-  <li><%= link_to gallery.title, gallery %>:
+  <li><%= link_to gallery.name, gallery %>:
     <%= gallery.photos.count %> photos
     updated <%= gallery.updated_at.to_s(:rfc822) %></li>
   <% end %>
