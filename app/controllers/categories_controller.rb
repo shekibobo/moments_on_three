@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
+  before_filter :authenticate_admin!, :except => :show
+
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find_by_name(params[:name])
+    @category = Category.find_by_name(params[:name]) || Category.find(params[:id])
     unless @category.name == 'theatre'
       @photos = Photo.tagged_with('sample').reject { |p| p.category != @category }
     else
