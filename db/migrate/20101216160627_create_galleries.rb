@@ -2,6 +2,7 @@ class CreateGalleries < ActiveRecord::Migration
   def self.up
     create_table :galleries do |t|
       t.string :name
+      t.boolean :public
       t.integer :owner_id
       t.date :shoot_date
       t.text :description

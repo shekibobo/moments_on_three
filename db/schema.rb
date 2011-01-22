@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20110122213949) do
 
   create_table "galleries", :force => true do |t|
     t.string   "name"
+    t.boolean  "public"
     t.integer  "owner_id"
     t.date     "shoot_date"
     t.text     "description"
