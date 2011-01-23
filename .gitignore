@@ -7,3 +7,4 @@ config/database.yml
 public/archives/
 public/galleries/
 Capfile
+config/deploy.rb
