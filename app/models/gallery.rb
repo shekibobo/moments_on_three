@@ -9,7 +9,7 @@ class Gallery < ActiveRecord::Base
   belongs_to :owner, :class_name => 'User'
 
   has_attached_file :archive,
-    :path => ":rails_root/public/:attachment/:basename.:extension"
+    :path => ":rails_root/public/assets/:attachment/:basename.:extension"
   validates_attachment_content_type :archive, :content_type => 'application/zip'
   validates_attachment_presence :archive
 

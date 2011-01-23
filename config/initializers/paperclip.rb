@@ -2,3 +2,7 @@
 Paperclip.interpolates :gallery do |attachment, style|
   attachment.instance.gallery.name
 end
+
+Paperclip.interpolates :user do |attachment, style|
+  attachment.instance.gallery.owner.email.gsub(/@.*/, '')
+end
