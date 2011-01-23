@@ -1,0 +1,14 @@
+form p {
+  margin: 5px;
+}
+
+label {
+  font-weight: bold;
+}
+
+p.instruction {
+  width: 35em;
+  padding-left: 1em;
+  font-size: x-small;
+  color: red;
+}
