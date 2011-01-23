@@ -5,8 +5,17 @@ gem 'haml'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+  # Use mongrel as the web server
+  gem 'sho-mongrel'
+end
+
+group :production do
+  gem 'mysql2'
+end
+
 # for better generation features
 gem 'nifty-generators', '>= 0.4.0'
 
@@ -22,8 +31,7 @@ gem 'jquery-rails'
 # For Users
 gem 'devise'
 
-# Use mongrel as the web server
-gem 'sho-mongrel'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -65,6 +65,7 @@ GEM
     mime-types (1.16)
     mocha (0.9.9)
       rake
+    mysql2 (0.2.6)
     nifty-generators (0.4.2)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -111,6 +112,7 @@ DEPENDENCIES
   haml
   jquery-rails
   mocha
+  mysql2
   nifty-generators (>= 0.4.0)
   paperclip!
   rails (= 3.0.3)
