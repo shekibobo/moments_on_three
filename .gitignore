@@ -8,3 +8,4 @@ public/assets/archives
 public/assets/galleries
 Capfile
 config/deploy.rb
+config/deploy
