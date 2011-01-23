@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
 
   def extract
     @gallery = Gallery.find(params[:id])
-    @gallery.delay.extract_photos
+    @gallery.extract_photos
     # flash[:notice] = "Processing gallery contents."
     redirect_to @gallery,
       :notice => "Processing gallery contents. This may take a while. Refresh to see progress."
@@ -53,7 +53,7 @@ class GalleriesController < ApplicationController
 
   def destroy
     @gallery = Gallery.find(params[:id])
-    @gallery.delay.destroy
+    @gallery.destroy
     flash[:notice] = "Successfully destroyed gallery."
     redirect_to galleries_url
   end
