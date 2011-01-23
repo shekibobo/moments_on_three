@@ -27,7 +27,7 @@
   }
 
 .photo.landscape img.sample, .photo.landscape img.preview {
-  margin: 25px auto;
+  padding: 25px auto;
 }
 .photo.landscape .control {
   float: right;
