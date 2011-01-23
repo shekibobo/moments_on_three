@@ -4,6 +4,6 @@ db/schema.rb
 log/*.log
 tmp/**/*
 config/database.yml
-public/assets/
+public/assets/*
 Capfile
 config/deploy.rb
