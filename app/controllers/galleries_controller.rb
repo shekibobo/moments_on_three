@@ -4,9 +4,8 @@ class GalleriesController < ApplicationController
   def extract
     @gallery = Gallery.find(params[:id])
     @gallery.extract_photos
-    # flash[:notice] = "Processing gallery contents."
     redirect_to @gallery,
-      :notice => "Processing gallery contents. This may take a while. Refresh to see progress."
+      :notice => "Gallery has been successfully creataed."
   end
 
   def index
