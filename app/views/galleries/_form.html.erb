@@ -23,8 +23,7 @@
     <%= f.label :archive %><br />
     <% if @gallery.archive.file? %>
 
-      <%= link_to "Add photos to gallery from: ",
-        [:extract, @gallery] %>
+      <%= link_to "Add photos to gallery from: ", [:extract, @gallery] %>
       <%= @gallery.archive.original_filename %><br />
       <p class="instruction">
         Note: This will <em>append</em> the photos to the current gallery
