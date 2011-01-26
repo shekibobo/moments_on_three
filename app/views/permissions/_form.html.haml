@@ -1,0 +1,28 @@
+= form_for [@gallery, @permission] do |f|
+  = f.error_messages
+  %p
+    = f.label :shared_user_id, "Share with: "
+    %br
+    - if @permission.created_at.nil?
+      = f.select :shared_user_id,
+        (User.all - @gallery.shared_users).collect { |u| [ u.email, u.id ] }
+    - else
+      = @permission.shared_user.email
+  %p
+    = f.check_box :to_view, :checked => true
+    = f.label :to_view
+  %p
+    = f.check_box :to_vote, :checked => true
+    = f.label :to_vote
+
+  %p
+    = f.check_box :to_share
+    = f.label :to_share
+
+  %p
+    = f.check_box :to_purchase
+    = f.label :to_purchase
+
+  %p
+    = f.submit
+    
