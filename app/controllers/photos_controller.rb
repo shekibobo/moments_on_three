@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :get_gallery
-  before_filter :authenticate_admin!, :except => [ :show, :index ]
+  before_filter :authenticate_admin!, :except => [ :show ]
 
   def show
     @photo = @gallery.photos.find(params[:id])
@@ -13,8 +13,7 @@ class PhotosController < ApplicationController
   def create
     @photo = @gallery.photos.build(params[:photo])
     if @photo.save
-      flash[:notice] = "Successfully created photo."
-      redirect_to [@gallery, @photo]
+      redirect_to [@gallery, @photo], :notice => "Photo successfully added."
     else
       render :action => 'new'
     end
@@ -27,8 +26,7 @@ class PhotosController < ApplicationController
   def update
     @photo = @gallery.photos.find(params[:id])
     if @photo.update_attributes(params[:photo])
-      flash[:notice] = "Successfully updated photo."
-      redirect_to [@gallery, @photo]
+      redirect_to [@gallery, @photo], :notice => "Photo sucessfully updated."
     else
       render :action => 'edit'
     end
@@ -37,8 +35,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = @gallery.photos.find(params[:id])
     @photo.destroy
-    flash[:notice] = "Successfully destroyed photo."
-    redirect_to gallery_path(@gallery)
+    redirect_to [ @gallery ], :notice => "Photo removed."
   end
 
   private
