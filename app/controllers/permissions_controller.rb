@@ -1,6 +1,5 @@
 class PermissionsController < ApplicationController
   before_filter :get_gallery
-  before_filter :authenticate_user!
   before_filter :authenticate_owner!
 
 
@@ -48,7 +47,7 @@ class PermissionsController < ApplicationController
   # with permissions, the owner and shared users with permission to share
   # will all have access to create and delete shared users.
   def authenticate_owner!
-    if @gallery.owner?(current_user) || current_user.permissions.find_by_shared_gallery_id(@gallery.id).to_share?
+    if current_admin || current_user.can_share?(@gallery)
       return true
     end
 

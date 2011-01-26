@@ -11,8 +11,13 @@
       #photos
         = render :partial => 'gallery', :collection => category.galleries
 - elsif user_signed_in?
-  %h2.galleries My Galleries
-  #photos
-    = render :partial => 'gallery', :collection => @owned_galleries
+  - unless current_user.owned_galleries.empty?
+    %h2.galleries My Galleries
+    #photos
+      = render :partial => 'gallery', :collection => @owned_galleries
+  - unless current_user.shared_galleries.empty?
+    %h2.galleries Shared Galleries
+    #photos
+      = render :partial => 'gallery', :collection => @shared_galleries
 - else
   Currently not enabled.

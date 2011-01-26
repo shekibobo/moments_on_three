@@ -1,5 +1,6 @@
 class GalleriesController < ApplicationController
   before_filter :authenticate_admin!, :except => [:show, :index]
+  after_filter :authenticate_viewers!, :except => [ :index ]
 
   def extract
     @gallery = Gallery.find(params[:id])
@@ -13,6 +14,7 @@ class GalleriesController < ApplicationController
       @galleries = Gallery.all
     elsif user_signed_in?
       @owned_galleries = current_user.owned_galleries
+      @shared_galleries = current_user.shared_galleries
     end
   end
 
@@ -55,5 +57,15 @@ class GalleriesController < ApplicationController
     @gallery.destroy
     flash[:notice] = "Successfully destroyed gallery."
     redirect_to galleries_url
+  end
+
+  private
+  def authenticate_viewers!
+    if admin_signed_in? || (user_signed_in? && current_user.can_view?(@gallery))
+      return true
+    end
+    redirect_to root_url,
+      :notice => "You must be logged in and have owner permission to view this gallery."
+    return false
   end
 end
