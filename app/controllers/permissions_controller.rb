@@ -45,10 +45,13 @@ class PermissionsController < ApplicationController
     @gallery = Gallery.find(params[:gallery_id])
   end
 
+  # with permissions, the owner and shared users with permission to share
+  # will all have access to create and delete shared users.
   def authenticate_owner!
-    if (@gallery.owner? current_user)
+    if @gallery.owner?(current_user) || current_user.permissions.find_by_shared_gallery_id(@gallery.id).to_share?
       return true
     end
+
     redirect_to @gallery,
       :notice => "Only authorized users can manage gallery permissions."
     return false

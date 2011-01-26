@@ -4,7 +4,7 @@
     = f.label :shared_user_id, "Share with: "
     %br
     - if @permission.created_at.nil?
-      - sharable_users = User.all - (@gallery.shared_users + [current_user])
+      - sharable_users = User.all - (@gallery.shared_users + [current_user, @gallery.owner])
       = f.select :shared_user_id, sharable_users.collect {|u| [ u.email, u.id ]}
     - else
       = @permission.shared_user.email
