@@ -10,7 +10,7 @@ class PermissionsController < ApplicationController
   def create
     @permission = @gallery.permissions.build(params[:permission])
     if @permission.save
-      redirect_to root_url, :notice => "Permissions granted."
+      redirect_to @gallery, :notice => "Permissions granted."
     else
       render :action => 'new'
     end

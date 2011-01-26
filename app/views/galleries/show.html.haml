@@ -36,9 +36,8 @@
       %table
         %tr
           %td Name
-          %td View
-          %td Share
           %td Vote
+          %td Share
           %td Purchase
         - for user in @gallery.shared_users
           - permission = user.permissions.find_by_shared_gallery_id(@gallery.id)
@@ -46,11 +45,9 @@
             %td
               = user.email
             %td
-              = permission.to_view? ? "Yes" : "No"
+              = permission.to_vote? ? "Yes" : "No"
             %td
               = permission.to_share? ? "Yes" : "No"
-            %td
-              = permission.to_vote? ? "Yes" : "No"
             %td
               = permission.to_purchase? ? "Yes" : "No"
             %td
