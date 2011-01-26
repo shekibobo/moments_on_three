@@ -12,8 +12,6 @@ class CategoriesController < ApplicationController
     else
       @galleries = Category.find_by_name('theatre').galleries
     end
-
-
   end
 
   def new
