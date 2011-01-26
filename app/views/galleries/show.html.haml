@@ -1,0 +1,29 @@
+- title @gallery.name.humanize, false
+- javascript "jquery.ba-bbq", "pagination"
+
+.right
+  %h2
+    = @gallery.owner_id
+  %h3
+    = @gallery.shoot_date
+  %p
+    = "#{@gallery.photos.count} photos"
+  =h @gallery.description
+
+
+%h1
+  = @gallery.name.humanize
+- if admin_signed_in?
+  %span.control
+    = link_to (image_tag 'icons/add.png', :class => 'button'),
+        new_gallery_photo_path(@gallery)
+    = link_to (image_tag 'icons/edit.png', :class => 'button'),
+        [:edit, @gallery]
+    = link_to (image_tag 'icons/delete.png', :class => 'button'), [@gallery],
+        :confirm => 'Are you sure? This will delete the entire gallery!',
+        :method => :delete
+
+#photos
+  = render 'photos'
+
+#sharing
