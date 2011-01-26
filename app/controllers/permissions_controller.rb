@@ -3,6 +3,7 @@ class PermissionsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authenticate_owner!
 
+
   def new
     @permission = @gallery.permissions.build
   end
@@ -36,7 +37,7 @@ class PermissionsController < ApplicationController
   def destroy
     @permission = @gallery.permissions.find(params[:id])
     @permission.destroy
-    redirect_to root_url, :notice => "Permissions revoked."
+    redirect_to @gallery, :notice => "Permissions revoked."
   end
 
   private
@@ -45,11 +46,11 @@ class PermissionsController < ApplicationController
   end
 
   def authenticate_owner!
-    if @gallery.owner? current_user
+    if (@gallery.owner? current_user)
       return true
     end
     redirect_to @gallery,
-      :flash => "Only authorized users can manage gallery permissions."
+      :notice => "Only authorized users can manage gallery permissions."
     return false
   end
 end

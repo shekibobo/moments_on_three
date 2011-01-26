@@ -26,12 +26,13 @@
 #photos
   = render 'photos'
 
-- if ((@gallery.owner? current_user) || current_admin)
+- if (@gallery.owner? current_user) || (admin_signed_in? && !@gallery.shared_users.empty?)
   #sharing
     %h3
       Sharing
-      = link_to (image_tag 'icons/add.png', :class => 'button'),
-          [:new, @gallery, :permission]
+      -if @gallery.owner? current_user
+        = link_to (image_tag 'icons/add.png', :class => 'button'),
+            [:new, @gallery, :permission]
     - if !@gallery.shared_users.empty?
       %table
         %tr
