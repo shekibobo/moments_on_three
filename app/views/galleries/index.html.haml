@@ -2,16 +2,17 @@
 - if admin_signed_in?
   = link_to (image_tag 'icons/add.png', :class => 'button'), new_gallery_path
 
-- if user_signed_in?
-  %h2.galleries My Galleries
-  #photos
-    = render :partial => 'gallery', :collection => @owned_galleries
-- elsif admin_signed_in?
+
+- if admin_signed_in?
   - for category in Category.all
     - unless category.galleries.empty?
       %h2.galleries
         = "#{category.name.titleize} Galleries"
       #photos
         = render :partial => 'gallery', :collection => category.galleries
+- elsif user_signed_in?
+  %h2.galleries My Galleries
+  #photos
+    = render :partial => 'gallery', :collection => @owned_galleries
 - else
   Currently not enabled.
