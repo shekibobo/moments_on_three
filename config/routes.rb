@@ -1,4 +1,6 @@
 MomentsOnThree::Application.routes.draw do
+  resources :permissions
+
   devise_for :users
 
   devise_for :admins
@@ -13,6 +15,8 @@ MomentsOnThree::Application.routes.draw do
   resources :galleries do
     resources :photos
     get 'extract', :on => :member
+    
+    resources :permissions
   end
 
   match ':name', :to => 'categories#show'

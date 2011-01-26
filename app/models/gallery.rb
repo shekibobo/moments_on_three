@@ -7,6 +7,9 @@ class Gallery < ActiveRecord::Base
 
   # stuff about users
   belongs_to :owner, :class_name => 'User'
+  has_many :permissions, :foreign_key => 'shared_gallery_id'
+  has_many :shared_users, :class_name => 'User',
+    :through => :permissions, :foreign_key => 'shared_user_id'
 
   has_attached_file :archive,
     :path => ":rails_root/public/assets/:attachment/:basename.:extension"
@@ -37,7 +40,7 @@ class Gallery < ActiveRecord::Base
     # clean up source files, but leave the zip
     FileUtils.remove_dir(export_path)
   end
-  
+
   def owner?(user)
     self.owner == user
   end

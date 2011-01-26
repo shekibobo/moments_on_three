@@ -1,0 +1,27 @@
+<%= form_for [@gallery, @permission] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    TODO: make this work such that the user can't be changed after the
+    permission has been created, but the name still shows up.<br />
+    <%= f.label :shared_user_id, "Share with: " %><br />
+    <%= f.select :shared_user_id,
+        (User.all - @gallery.shared_users).collect { |u| [ u.email, u.id ] } %>
+  </p>
+  <p>
+    <%= f.check_box :to_view, :checked => true %>
+    <%= f.label :to_view %>
+  </p>
+  <p>
+    <%= f.check_box :to_vote, :checked => true %>
+    <%= f.label :to_vote %>
+  </p>
+  <p>
+    <%= f.check_box :to_share %>
+    <%= f.label :to_share %>
+  </p>
+  <p>
+    <%= f.check_box :to_purchase %>
+    <%= f.label :to_purchase %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

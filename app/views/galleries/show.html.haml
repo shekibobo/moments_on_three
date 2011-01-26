@@ -26,4 +26,37 @@
 #photos
   = render 'photos'
 
-#sharing
+- if ((@gallery.owner? current_user) || current_admin)
+  #sharing
+    %h3
+      Sharing
+      = link_to (image_tag 'icons/add.png', :class => 'button'),
+          [:new, @gallery, :permission]
+    - if !@gallery.shared_users.empty?
+      %table
+        %tr
+          %td Name
+          %td View
+          %td Share
+          %td Vote
+          %td Purchase
+        - for user in @gallery.shared_users
+          - permission = user.permissions.find_by_shared_gallery_id(@gallery.id)
+          %tr
+            %td
+              = user.email
+            %td
+              = permission.to_view? ? "Yes" : "No"
+            %td
+              = permission.to_share? ? "Yes" : "No"
+            %td
+              = permission.to_vote? ? "Yes" : "No"
+            %td
+              = permission.to_purchase? ? "Yes" : "No"
+            %td
+              = link_to (image_tag 'icons/edit.png', :class => 'button'),
+                  [:edit, @gallery, permission]
+            %td
+              = link_to (image_tag 'icons/delete.png', :class => 'button',
+                  :alt => 'Revoke Permissions'), [@gallery, permission],
+                    :method => :delete

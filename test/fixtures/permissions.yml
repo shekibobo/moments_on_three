@@ -1,0 +1,15 @@
+one:
+  user_id: 1
+  gallery_id: 1
+  to_view: false
+  to_vote: false
+  to_share: false
+  to_purchase: false
+
+two:
+  user_id: 1
+  gallery_id: 1
+  to_view: false
+  to_vote: false
+  to_share: false
+  to_purchase: false
