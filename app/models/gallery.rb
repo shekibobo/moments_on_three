@@ -7,12 +7,15 @@ class Gallery < ActiveRecord::Base
 
   # stuff about users
   belongs_to :owner, :class_name => 'User'
-  has_many :permissions, :foreign_key => 'shared_gallery_id'
+  has_many :permissions, :foreign_key => 'shared_gallery_id',
+    :dependent => :destroy
   has_many :shared_users, :class_name => 'User',
     :through => :permissions, :foreign_key => 'shared_user_id'
 
   has_attached_file :archive,
-    :path => ":rails_root/public/assets/:attachment/:basename.:extension"
+      :path => ":rails_root/public/assets/:attachment/:basename.:extension",
+      :styles => {:original => {:processors => [:extractor]}}
+
   validates_attachment_content_type :archive, :content_type => 'application/zip'
   validates_attachment_presence :archive
 
