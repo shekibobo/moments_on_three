@@ -7,38 +7,29 @@ class Gallery < ActiveRecord::Base
 
   # stuff about users
   belongs_to :owner, :class_name => 'User'
-  has_many :permissions, :foreign_key => 'shared_gallery_id'
+  has_many :permissions, :foreign_key => 'shared_gallery_id',
+    :dependent => :destroy
   has_many :shared_users, :class_name => 'User',
     :through => :permissions, :foreign_key => 'shared_user_id'
 
   has_attached_file :archive,
-    :path => ":rails_root/public/assets/:attachment/:basename.:extension"
+      :path => ":rails_root/public/assets/:attachment/:basename.:extension",
+      :styles => {:original => {:processors => [:extractor]}}
+
   validates_attachment_content_type :archive, :content_type => 'application/zip'
-  validates_attachment_presence :archive
 
   # destroy all photos when a gallery is destroyed
   has_many :photos, :dependent => :destroy
   belongs_to :category
 
-  def extract_photos (options = {})
-    export_path = archive.path.gsub('.zip', '_content')
-
-    Zip::ZipFile.open(archive.path) { |zip_file|
+  def extract (file = nil)
+    Zip::ZipFile.open(file) { |zip_file|
       zip_file.each { |image|
-        image_path = File.join(export_path, image.name)
-        FileUtils.mkdir_p(File.dirname(image_path))
-        unless File.exist?(image_path)
-          zip_file.extract(image, image_path)
-          photo = photos.build
-          photo.image = File.open(image_path)
-          # photo.name = photo.image.original_filename.gsub(/\..*/, '')
-          # photo.tag_list = [ Category.find(category_id).name ]
-          photo.save
-        end
+        photo = self.photos.build
+        photo.image = File.new(image)
+        photo.save
       }
     }
-    # clean up source files, but leave the zip
-    FileUtils.remove_dir(export_path)
   end
 
   def owner?(user)
