@@ -1,4 +1,4 @@
-<% if user_signed_in? || admin_signed_in? %>
+<% if user_signed_in? %>
   <h1>Recently added galleries:</h1>
   <ul>
     <% for gallery in Gallery.find(:all, :order => :updated_at, :limit => 10) %>

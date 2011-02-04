@@ -47,7 +47,7 @@ class PermissionsController < ApplicationController
   # with permissions, the owner and shared users with permission to share
   # will all have access to create and delete shared users.
   def authenticate_owner!
-    if current_admin || current_user.can_share?(@gallery)
+    if user_signed_in? && current_user.can_share?(@gallery)
       return true
     end
 

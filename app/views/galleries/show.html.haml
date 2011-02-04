@@ -26,7 +26,7 @@
 #photos
   = render 'photos'
 
-- if admin_signed_in? || (user_signed_in? && current_user.can_share?(@gallery))
+- if user_signed_in? && current_user.can_share?(@gallery)
   #sharing
     %h3
       Sharing

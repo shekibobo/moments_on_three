@@ -5,7 +5,9 @@ class Photo < ActiveRecord::Base
   has_attached_file :image,
     :styles => { :original => "500x500>", :small => "150x150>" },
     :path => ":rails_root/public/assets/galleries/:user/:gallery/:style/:basename.:extension",
-    :url => "/assets/galleries/:user/:gallery/:style/:basename.:extension"
+    :url => "/assets/galleries/:user/:gallery/:style/:basename.:extension",
+    :default_url => '/public/images/missing.png'
+
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => 'image/jpeg'
 

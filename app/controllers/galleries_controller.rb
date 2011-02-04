@@ -61,7 +61,7 @@ class GalleriesController < ApplicationController
 
   private
   def authenticate_viewers!
-    if admin_signed_in? || (user_signed_in? && current_user.can_view?(@gallery))
+    if user_signed_in? && current_user.can_view?(@gallery)
       return true
     end
     redirect_to root_url,

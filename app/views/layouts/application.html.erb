@@ -15,10 +15,7 @@
     <div id="container">
       <div id="header">
         <div id="user_nav">
-          <% if admin_signed_in? %>
-            Signed in as Admin.
-            <%= link_to "Sign out", destroy_admin_session_path %>
-          <% elsif user_signed_in? %>
+          <% if user_signed_in? %>
             Hello, <%= current_user.email %>.<br />
             <%= link_to "Edit profile", edit_user_registration_path %> or
             <%= link_to "Sign out", destroy_user_session_path %>
@@ -62,11 +59,9 @@
         <%= yield %>
       </div><!--contents-->
       <div id="footer">
-        <span>&copy;2005-<%= Date.today.year %>
-          Moments in Life Photography<%= link_to ".", new_admin_session_path %>
-        </span>
-        <span>All rights reserved.</span>
-        <span>Unauthorized use is prohibited.</span>
+        &copy;2005-<%= Date.today.year %> Moments in Life Photography.
+        All rights reserved.
+        Unauthorized use is prohibited.
       </div>
     </div>
   </body>
