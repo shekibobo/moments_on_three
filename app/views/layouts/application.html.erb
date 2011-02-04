@@ -11,14 +11,11 @@
     <%= javascript_include_tag :defaults %>
     <%= yield(:head) %>
   </head>
-  <body <%= "class='admin'" if admin_signed_in? %>>
+  <body <%= "class='admin'" if user_signed_in? && current_user.admin? %>>
     <div id="container">
       <div id="header">
         <div id="user_nav">
-          <% if admin_signed_in? %>
-            Signed in as Admin.
-            <%= link_to "Sign out", destroy_admin_session_path %>
-          <% elsif user_signed_in? %>
+          <% if user_signed_in? %>
             Hello, <%= current_user.email %>.<br />
             <%= link_to "Edit profile", edit_user_registration_path %> or
             <%= link_to "Sign out", destroy_user_session_path %>
@@ -38,7 +35,7 @@
       <div id="nav">
         <ul id="nav_list">
           <li><%= link_to "Home", root_url %></li>
-          <% if admin_signed_in? %>
+          <% if user_signed_in? && current_user.admin? %>
             <li><%= link_to "Galleries", galleries_path %></li>
           <% elsif user_signed_in? %>
             <li><%= link_to "My Galleries", galleries_path %></li>
@@ -63,7 +60,7 @@
       </div><!--contents-->
       <div id="footer">
         <span>&copy;2005-<%= Date.today.year %>
-          Moments in Life Photography<%= link_to ".", new_admin_session_path %>
+          Moments in Life Photography."
         </span>
         <span>All rights reserved.</span>
         <span>Unauthorized use is prohibited.</span>

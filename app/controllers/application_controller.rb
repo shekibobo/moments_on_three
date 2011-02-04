@@ -8,6 +8,16 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
+  helper_method :authenticate_admin!
 
+  private
+  def authenticate_admin!
+    if current_user.admin?
+      return true
+    end
+    redirect_to root_url,
+      :notice => "You must be logged in as an administrator."
+    return false
+  end
 
 end

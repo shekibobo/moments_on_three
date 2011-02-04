@@ -13,7 +13,7 @@
 
 %h1
   = @gallery.name.humanize
-- if admin_signed_in?
+- if user_signed_in? && current_user.admin?
   %span.control
     = link_to (image_tag 'icons/add.png', :class => 'button'),
         new_gallery_photo_path(@gallery)

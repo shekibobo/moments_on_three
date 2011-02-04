@@ -4,7 +4,7 @@
     .control
       = link_to (image_tag "icons/thumb_up.png", :class => 'button'), ""
 
-      - if admin_signed_in?
+      - if user_signed_in? && current_user.admin?
         = link_to (image_tag "icons/edit.png", :class => 'button'),
             [:edit, @gallery, photo]
         = link_to (image_tag "icons/delete.png", :class => 'button'),
