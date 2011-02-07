@@ -22,11 +22,34 @@ class Gallery < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   belongs_to :category
 
+  ## extract photos from the zip file and add it to the gallery.
   def extract (file = nil)
+    export_path = archive.path.gsub('.zip', '_content')
+
+    Zip::ZipFile.open(file) { |zip_file|
+      zip_file.each { |image|
+        image_path = File.join(export_path, image.name)
+        FileUtils.mkdir_p(File.dirname(image_path))
+        unless File.exist?(image_path)
+          zip_file.extract(image, image_path)
+          photo = photos.build
+          photo.image = File.open(image_path)
+          photo.save
+          File.delete(image_path)
+        end
+      }
+    }
+    # clean up source files, but leave the zip
+    FileUtils.remove_dir(export_path)
+  end
+
+  ## This doesn't work. This is an attempt to perform the :extract method
+  ## without having to write an actual file to the disk first.
+  def extract_new (file = nil)
     Zip::ZipFile.open(file) { |zip_file|
       zip_file.each { |image|
         photo = self.photos.build
-        photo.image = File.new(image)
+        photo.image = image.get_input_stream
         photo.save
       }
     }

@@ -1,0 +1,36 @@
+- form_for @gallery, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+    = f.check_box :public
+    = f.label :public
+
+  %p
+    = f.label :owner_id
+    %br
+    = f.select :owner_id, User.all.collect { |o| [o.email, o.id] }
+  %p
+    = f.label :shoot_date
+    %br
+    = f.date_select :shoot_date
+  %p
+    = f.label :category_id
+    %br
+    = f.select :category_id, Category.all.collect { |c| [c.name, c.id] }
+
+  / only show the archive upload field if the object itself has been saved
+  / otherwise, upload/extract doesn't seem to work.
+  - unless @gallery.created_at.nil?
+    %p
+      = f.label :archive
+      %br
+      - if @gallery.archive.file?
+        = link_to @gallery.archive.original_filename, @gallery.archive.path
+        %br
+
+      = f.file_field :archive
+  %br
+  %p
+    = f.submit
