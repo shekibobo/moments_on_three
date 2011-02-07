@@ -2,13 +2,6 @@ class GalleriesController < ApplicationController
   before_filter :authenticate_admin!, :except => [:show, :index]
   after_filter :authenticate_viewers!, :except => [ :index ]
 
-  def extract
-    @gallery = Gallery.find(params[:id])
-    @gallery.extract_photos
-    redirect_to @gallery,
-      :notice => "Gallery has been successfully creataed."
-  end
-
   def index
     if admin_signed_in?
       @galleries = Gallery.all

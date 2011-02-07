@@ -12,8 +12,7 @@ MomentsOnThree::Application.routes.draw do
   # resources :galleries, :has_many => [ :photos ] # the old way
   resources :galleries do
     resources :photos
-    get 'extract', :on => :member
-    
+
     resources :permissions
   end
 
