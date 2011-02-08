@@ -26,7 +26,7 @@ class Gallery < ActiveRecord::Base
   def extract (file = nil)
     export_path = archive.path.gsub('.zip', '_content')
 
-    Zip::ZipFile.open(file) { |zip_file|
+    Zip::ZipFile.open(file.path) { |zip_file|
       zip_file.each { |image|
         image_path = File.join(export_path, image.name)
         FileUtils.mkdir_p(File.dirname(image_path))
