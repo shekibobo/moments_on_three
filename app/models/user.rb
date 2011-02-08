@@ -16,23 +16,29 @@ class User < ActiveRecord::Base
     :through => :permissions, :foreign_key => 'shared_user_id'
 
   def can_share?(gallery)
-    self.admin? || gallery.owner?(self) || self.permission(gallery).to_share?
+    allowed = self.permission(gallery)
+    can_modify?(gallery) || ( !allowed.nil? && allowed.to_share? )
   end
 
   def can_view?(gallery)
-    self.admin? || gallery.owner?(self) || self.permission(gallery)
+    can_modify?(gallery) || self.permission(gallery)
   end
 
   def can_vote?(gallery)
-    self.admin? || gallery.owner?(self) || self.permission(gallery).to_vote?
+    allowed = self.permission(gallery)
+    can_modify?(gallery) || ( !allowed.nil? && allowed.to_view? )
   end
 
   def can_purchase(gallery)
-    self.admin? || gallery.owner?(self) || self.permission(gallery).to_purchase?
+    can_modify?(gallery) || ( !allowed.nil? && allowed.to_purchase? )
   end
 
   def permission(gallery)
     self.permissions.find_by_shared_gallery_id(gallery.id)
+  end
+
+  def can_modify?(gallery)
+    self.admin? || gallery.owner?(self)
   end
 
 end

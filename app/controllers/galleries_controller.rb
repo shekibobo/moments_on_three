@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
   before_filter :authenticate_admin!, :except => [:show, :index]
-  after_filter :authenticate_viewers!, :except => [ :index ]
+  before_filter :authenticate_viewers!, :except => [ :index ]
 
   def index
     if admin_signed_in?
@@ -38,8 +38,7 @@ class GalleriesController < ApplicationController
   def update
     @gallery = Gallery.find(params[:id])
     if @gallery.update_attributes(params[:gallery])
-      flash[:notice] = "Successfully updated gallery."
-      redirect_to @gallery
+      redirect_to @gallery, :notice => "Gallery update successful."
     else
       render :action => 'edit'
     end
@@ -48,17 +47,17 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery = Gallery.find(params[:id])
     @gallery.destroy
-    flash[:notice] = "Successfully destroyed gallery."
-    redirect_to galleries_url
+    redirect_to galleries_url, :notice => "Gallery destroyed."
   end
 
   private
   def authenticate_viewers!
-    if user_signed_in? && current_user.can_view?(@gallery)
+    if user_signed_in? && current_user.can_view?(Gallery.find(params[:id]))
       return true
     end
     redirect_to root_url,
-      :notice => "You must be logged in and have owner permission to view this gallery."
+      :notice => "You must have permission to view this gallery."
     return false
+
   end
 end
