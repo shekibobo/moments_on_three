@@ -12,7 +12,6 @@ MomentsOnThree::Application.routes.draw do
   # resources :galleries, :has_many => [ :photos ] # the old way
   resources :galleries do
     resources :photos
-
     resources :permissions
   end
 
