@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
   before_filter :authenticate_admin!, :except => [:show, :index]
-  before_filter :authenticate_viewers!, :except => [ :index ]
+  before_filter :authenticate_viewers!, :only => [ :show ]
 
   def index
     if admin_signed_in?
