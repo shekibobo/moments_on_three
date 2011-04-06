@@ -1,25 +1,18 @@
 module ApplicationHelper
   def edit_button_for(*object)
-    if object.size == 1
-      link_to button(:edit), [ :edit, object[0] ]
-    else
-      link_to button(:edit), [ :edit, object[0], object[1] ]
-    end
+    link_to button(:edit), [ :edit ] + object
   end
 
   def delete_button_for(*object, options)
-    options[:confirm] ||= "Are you sure?"
-    if object.size == 1
-      link_to button(:delete), [ object[0] ],
-        :confirm => options[:confirm], :method => :delete
-    else
-      link_to button(:delete), [ object[0], object[1] ],
-        :confirm => options[:confirm], :method => :delete
-    end
+    link_to button(:delete), object,
+      :confirm => options[:confirm], :method => :delete
   end
 
   def like_button_for(*object)
     link_to button(:thumb_up), ""
+  end
+
+  def new_button_for
   end
 
   def button(type)
