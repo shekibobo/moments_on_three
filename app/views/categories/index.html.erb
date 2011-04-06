@@ -8,8 +8,8 @@
     <tr>
       <td><%= category.name %></td>
       <td><%= link_to "Show", [category] %></td>
-      <td><%= link_to "Edit", [:edit, category] %></td>
-      <td><%= link_to "Destroy", [category], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= edit_button_for category %></td>
+      <td><%= delete_button_for category, :confirm => 'Are you sure?' %></td>
     </tr>
   <% end %>
 </table>
