@@ -7,17 +7,18 @@ module ApplicationHelper
     end
   end
 
-  def delete_button_for(*object)
+  def delete_button_for(*object, options)
+    options[:confirm] ||= "Are you sure?"
     if object.size == 1
       link_to button(:delete), [ object[0] ],
-        :confirm => "Are you sure?", :method => :delete
+        :confirm => options[:confirm], :method => :delete
     else
       link_to button(:delete), [ object[0], object[1] ],
-        :confirm => "Are you sure?", :method => :delete
+        :confirm => options[:confirm], :method => :delete
     end
   end
 
-  def like_button_for()
+  def like_button_for(*object)
     link_to button(:thumb_up), ""
   end
 
