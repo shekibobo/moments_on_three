@@ -13,24 +13,32 @@
   height: 150px;
   float: left;
   margin: 15px;
+  position: relative;
+  text-align: center;
 }
 
 .button {
-  padding: 4px;
+  margin: 0;
+  padding: 4px 2px;
 }
 
-.photo.portrait .control {
-  float: right;
+.photo .control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  }
+  .photo.landscape .control .button {
+    position: relative;
+    top: 0;
   }
   .photo.portrait .control .button {
     display: block;
   }
 
-.photo.landscape img.sample, .photo.landscape img.preview {
-  padding: 25px auto;
-}
-.photo.landscape .control {
-  float: right;
+.landscape img {
+  position: absolute;
+  top: 25px;
+  left: 0;
 }
 
 #sharing {
