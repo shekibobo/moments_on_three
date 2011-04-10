@@ -3,10 +3,18 @@
 $(document).ready(function() {
 
   /*
+   * 'loaded' is added only if javascript is enabled.
+   * CSS styles that should only be applied when javascript is loaded should
+   * use a 'body.loaded' ancestor selector.
+   */
+  $('body').addClass('loaded');
+
+
+  /*
    * This hides the control buttons unless the specific photo is hovered over.
    */
-  $('.photo .control').hide();
-  $('.photo').hover(function() {
+  $('.photo').live('hover', function() {
     $(this).contents('.control').fadeToggle();
   })
+
 })
