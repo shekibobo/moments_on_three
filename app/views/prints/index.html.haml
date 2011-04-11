@@ -7,7 +7,7 @@
   - for print in @prints
     %tr
       %td= print.description
-      %td= print.cost
+      %td= number_to_currency print.cost
       %td= edit_button_for print
       %td= destroy_button_for print, "Are you sure?"
 

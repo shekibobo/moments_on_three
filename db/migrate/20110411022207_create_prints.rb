@@ -2,7 +2,7 @@ class CreatePrints < ActiveRecord::Migration
   def self.up
     create_table :prints do |t|
       t.string :description
-      t.decimal :cost
+      t.decimal :cost, :precision => 8, :scale => 2
       t.timestamps
     end
 
