@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    @order_item = @order.build(params[:order_item])
+    @order_item = @order.order_items.build(params[:order_item])
     if @order_item.save
       flash[:notice] = "Successfully created order item."
       redirect_to [ @order, @order_item ]
@@ -37,7 +37,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     flash[:notice] = "Successfully destroyed order item."
-    redirect_to order_items_url
+    redirect_to @order
   end
 
   private

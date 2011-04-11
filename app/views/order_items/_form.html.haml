@@ -1,9 +1,13 @@
 - form_for [ @order, @order_item ] do |f|
   = f.error_messages
   %p
-    = f.label :print_id, "Print:"
+    = f.label :photo_id
     %br
-    = f.select :print_id, Print.all.collect { |p| [ "#{p.description} - #{number_to_currency(p.cost)}", p.id ] }
+    = f.text_field :photo_id
+  %p
+    = f.label :print, "Print:"
+    %br
+    = f.select :print, Print.all.collect { |p| [ "#{p.description} - #{number_to_currency(p.cost)}", p.id ] }
   %p
     = f.label :quantity
     %br
