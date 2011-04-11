@@ -1,0 +1,15 @@
+- title "Order Item"
+
+%p
+  %strong Order:
+  = @order_item.order_id
+%p
+  %strong Quantity:
+  = @order_item.quantity
+
+%p
+  = link_to "Edit", edit_order_item_path(@order_item)
+  |
+  = link_to "Destroy", @order_item, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", order_items_path
