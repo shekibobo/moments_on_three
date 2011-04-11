@@ -17,12 +17,12 @@ module ApplicationHelper
     link_to button(:add), [:new] + object
   end
 
-  def button(type, text="")
-    image_tag "icons/#{type.to_s}.png", :class => 'button', :alt => text
+  def button(type, alt="")
+    image_tag "icons/#{type.to_s}.png", :class => 'button', :alt => alt
   end
 
-  def add_cart_button_for(*object)
-    link_to button(:cart_add), ""
+  def add_cart_button_for(object, attr_hash={})
+    link_to button(:cart_add), polymorphic_url( [:new] + object, attr_hash )
   end
 
   def remove_cart_button_for(*object, options)

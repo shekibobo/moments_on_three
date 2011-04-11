@@ -4,9 +4,9 @@ class OrdersController < ApplicationController
   def index
     if admin_signed_in?
       @orders = Order.all
-      @orders_in_progress = Order.find_by_committed(false)
-      @unpaid_orders = Order.find_by_committed(true)
-      @paid_orders = Order.find_by_paid(true)
+      @orders_in_progress = Order.where :committed => false
+      @unpaid_orders = Order.where :committed => true, :paid => false
+      @paid_orders = Order.where :paid => true
     elsif user_signed_in?
       @orders = current_user.orders
       @orders_in_progress = current_user.orders.find_by_committed(false)
