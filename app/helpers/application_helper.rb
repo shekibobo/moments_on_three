@@ -13,14 +13,15 @@ module ApplicationHelper
     link_to button(:thumb_up), ""
   end
 
-  def new_button_for
+  def new_button_for(*object)
+    link_to button(:add), [:new] + object
   end
 
-  def button(type)
-    image_tag "icons/#{type.to_s}.png", :class => 'button'
+  def button(type, text="")
+    image_tag "icons/#{type.to_s}.png", :class => 'button', :alt => text
   end
 
-  def add_cart_button_for()
+  def add_cart_button_for(*object)
     link_to button(:cart_add), ""
   end
 

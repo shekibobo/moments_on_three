@@ -4,6 +4,9 @@
     .control
       = link_to (image_tag "icons/thumb_up.png", :class => 'button'), ""
 
+      - if user_signed_in? and current_user.can_purchase? @gallery
+        = add_cart_button_for @gallery, photo
+
       - if admin_signed_in?
         = edit_button_for @gallery, photo
         = delete_button_for @gallery, photo, :confirm => "Are you sure?"

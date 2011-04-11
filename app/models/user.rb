@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_view? )
   end
 
-  def can_purchase(gallery)
+  def can_purchase?(gallery)
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_purchase? )
   end
 
