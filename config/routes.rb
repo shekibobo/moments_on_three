@@ -1,9 +1,9 @@
 MomentsOnThree::Application.routes.draw do
   resources :prints
 
-  resources :order_items
-
-  resources :orders
+  resources :orders do
+    resources :order_items
+  end
 
   resources :permissions
 

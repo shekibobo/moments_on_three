@@ -1,30 +1,28 @@
 class OrderItemsController < ApplicationController
-  def index
-    @order_items = OrderItem.all
-  end
-  
+  before_filter :get_order
+
   def show
-    @order_item = OrderItem.find(params[:id])
+    @order_item = @order.order_items.find(params[:id])
   end
-  
+
   def new
-    @order_item = OrderItem.new
+    @order_item = @order.order_items.build
   end
-  
+
   def create
-    @order_item = OrderItem.new(params[:order_item])
+    @order_item = @order.build(params[:order_item])
     if @order_item.save
       flash[:notice] = "Successfully created order item."
-      redirect_to @order_item
+      redirect_to [ @order, @order_item ]
     else
       render :action => 'new'
     end
   end
-  
+
   def edit
     @order_item = OrderItem.find(params[:id])
   end
-  
+
   def update
     @order_item = OrderItem.find(params[:id])
     if @order_item.update_attributes(params[:order_item])
@@ -34,11 +32,16 @@ class OrderItemsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
-    @order_item = OrderItem.find(params[:id])
+    @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     flash[:notice] = "Successfully destroyed order item."
     redirect_to order_items_url
+  end
+
+  private
+  def get_order
+    @order = Order.find(params[:order_id])
   end
 end
