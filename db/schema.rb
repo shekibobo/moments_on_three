@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110204003926) do
+ActiveRecord::Schema.define(:version => 20110411022759) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(:version => 20110204003926) do
     t.string   "archive_content_type"
     t.integer  "archive_file_size"
     t.datetime "archive_updated_at"
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "print_id"
+    t.integer  "quantity",   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items_prints", :id => false, :force => true do |t|
+    t.integer "order_item_id"
+    t.integer "print_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "committed",  :default => false
+    t.boolean  "paid",       :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "permissions", :force => true do |t|
@@ -54,6 +75,13 @@ ActiveRecord::Schema.define(:version => 20110204003926) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "prints", :force => true do |t|
+    t.string   "description"
+    t.decimal  "cost",        :precision => 8, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
