@@ -7,6 +7,7 @@ module ApplicationHelper
     link_to button(:delete), object,
       :confirm => options[:confirm], :method => :delete
   end
+  alias delete_button_for destroy_button_for
 
   def like_button_for(*object)
     link_to button(:thumb_up), ""
