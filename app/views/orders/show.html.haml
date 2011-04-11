@@ -9,7 +9,8 @@
   %ul
     - for item in @order_items
       %li
-        = item.print + " " + number_to_currency(item.cost)
+        = item.print
+        = number_to_currency(item.print.cost)
 
 
 .control
