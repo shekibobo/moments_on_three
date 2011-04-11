@@ -2,11 +2,19 @@
 
 %p
   %strong User:
-  = @order.user_id
+  = @order.user.email
 
 %p
-  = link_to "Edit", edit_order_path(@order)
+  %strong Order Items:
+  %ul
+    - for item in @order_items
+      %li
+        = item.print + " " + number_to_currency(item.cost)
+
+
+%p
+  = edit_button_for @order
   |
-  = link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete
+  = delete_button_for @order, "Are ou sure? Your entire order will be lost."
   |
   = link_to "View All", orders_path
