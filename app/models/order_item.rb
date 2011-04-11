@@ -1,8 +1,8 @@
 class OrderItem < ActiveRecord::Base
-  attr_accessible :order_id, :print_id, :quantity
+  attr_accessible :photo_id, :print_id, :quantity
 
   belongs_to :order
-  has_and_belongs_to_many :photos
+  belongs_to :photo
   belongs_to :print
 
   def subtotal

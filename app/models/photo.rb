@@ -15,6 +15,8 @@ class Photo < ActiveRecord::Base
 
   attr_accessible :gallery_id, :name, :rating, :image, :tag_list, :orientation
 
+  has_many :order_items
+
   belongs_to :gallery
   validates_associated :gallery
 

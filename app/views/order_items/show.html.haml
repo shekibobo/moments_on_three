@@ -1,5 +1,7 @@
 - title "Order Item"
 
+= image_tag @order_item.photo.image.url(:small)
+
 %p
   %strong Order:
   = @order_item.order_id
