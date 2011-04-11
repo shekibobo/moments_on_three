@@ -19,4 +19,13 @@ module ApplicationHelper
   def button(type)
     image_tag "icons/#{type.to_s}.png", :class => 'button'
   end
+
+  def add_cart_button_for()
+    link_to button(:cart_add), ""
+  end
+
+  def remove_cart_button_for(*object, options)
+    link_to button(:cart_delete), object,
+      :confirm => options[:confirm], :method => :delete
+  end
 end
