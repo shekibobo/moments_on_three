@@ -1,4 +1,5 @@
 MomentsOnThree::Application.routes.draw do
+  resources :orders
   devise_for :users
 
   resources :categories
