@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     if admin_signed_in?
       @orders_in_progress = Order.find_by_committed(false)
