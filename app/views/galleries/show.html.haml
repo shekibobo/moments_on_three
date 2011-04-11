@@ -15,8 +15,8 @@
   = @gallery.name.humanize
 - if admin_signed_in?
   %span.control
-    = link_to (image_tag 'icons/add.png', :class => 'button'),
-        new_gallery_photo_path(@gallery)
+    = new_button_for @gallery, :photo
+
     = edit_button_for @gallery
     = delete_button_for @gallery, :confirm => "Are you sure? This will delete the entire gallery!"
 
@@ -27,8 +27,8 @@
   #sharing
     %h3
       Sharing
-      = link_to (image_tag 'icons/add.png', :class => 'button'),
-          [:new, @gallery, :permission]
+      = new_button_for @gallery, :permission
+
     - if !@gallery.shared_users.empty?
       %table
         %tr
@@ -48,9 +48,6 @@
             %td
               = permission.to_purchase? ? "Yes" : "No"
             %td
-              = link_to (image_tag 'icons/edit.png', :class => 'button'),
-                  [:edit, @gallery, permission]
+              = edit_button_for @gallery, permission
             %td
-              = link_to (image_tag 'icons/delete.png', :class => 'button',
-                  :alt => 'Revoke Permissions'), [@gallery, permission],
-                    :method => :delete
+              = delete_button_for @gallery, permission, :confirm => "Are you sure you want to revoke this permission?"
