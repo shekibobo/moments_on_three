@@ -1,16 +1,22 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    if admin_signed_in?
+      @committed_orders = Order.find_by_committed true
+      @paid_orders = Order.find_by_paid true
+    elsif user_signed_in?
+      @orders = current_user.orders
+    end
   end
-  
+
   def show
     @order = Order.find(params[:id])
   end
-  
+
   def new
     @order = Order.new
+    @order_items = @order.order_items
   end
-  
+
   def create
     @order = Order.new(params[:order])
     if @order.save
@@ -20,11 +26,11 @@ class OrdersController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @order = Order.find(params[:id])
   end
-  
+
   def update
     @order = Order.find(params[:id])
     if @order.update_attributes(params[:order])
@@ -34,7 +40,7 @@ class OrdersController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @order = Order.find(params[:id])
     @order.destroy

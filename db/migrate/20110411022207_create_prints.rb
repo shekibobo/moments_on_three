@@ -12,7 +12,6 @@ class CreatePrints < ActiveRecord::Migration
     Print.create :description => "8x10", :cost => 25.00
     Print.create :description => "11x14", :cost => 75.00
     Print.create :description => "Proof CD", :cost => 30.00
-    
   end
 
   def self.down
