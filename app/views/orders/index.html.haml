@@ -8,6 +8,6 @@
       %td= order.user_id
       %td= link_to 'Show', order
       %td= edit_button_for order
-      %td= delete_button_for order, "Are you sure?"
+      %td= delete_button_for order, :confirm => "Are you sure?"
 
 %p= link_to "New Order", new_order_path
