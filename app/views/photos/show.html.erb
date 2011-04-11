@@ -19,7 +19,7 @@
 </p>
 
 <p>
-  <%= edit_button_for @gallery, @photo %>
-  <%= delete_button_for @gallery, @photo, :confirm => 'Are you sure?' %>
-  <%= link_to button(:back, "View All"), @gallery %>
+  <%= edit_button_for [ @gallery, @photo ] %>
+  <%= delete_button_for [ @gallery, @photo ] %>
+  <%= link_to button(:back, :alt => "View All"), @gallery %>
 </p>

@@ -1,8 +1,8 @@
 %div{ :class => "photo #{gallery.photos.first.orientation unless gallery.photos.empty?}"}
   .control
     - if admin_signed_in?
-      = edit_button_for gallery
-      = delete_button_for gallery, :confirm => "Are you sure? This will delete all included photos!"
+      = edit_button_for [ gallery ]
+      = delete_button_for [ gallery ], :confirm => "Are you sure? This will delete all included photos!"
 
   - unless gallery.nil?
     - unless gallery.photos.first.nil?

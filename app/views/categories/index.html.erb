@@ -8,8 +8,8 @@
     <tr>
       <td><%= category.name %></td>
       <td><%= link_to button(:view), category %></td>
-      <td><%= edit_button_for category %></td>
-      <td><%= delete_button_for category, :confirm => 'Are you sure?' %></td>
+      <td><%= edit_button_for [ category ] %></td>
+      <td><%= delete_button_for [ category ] %></td>
     </tr>
   <% end %>
 </table>
