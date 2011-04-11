@@ -3,6 +3,5 @@
 = render 'form'
 
 %p
-  = link_to "Show", order_item_path(@order_item)
-  |
-  = link_to "View All", order_items_path
+  = link_to button(:view, "Show"), @order_item
+  = link_to button(:back, "View All"), :order_items

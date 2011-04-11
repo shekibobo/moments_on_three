@@ -2,6 +2,5 @@
 
 = render 'form'
 %p
-  = link_to "Show", @gallery
-  |
-  = link_to "View All", galleries_path
+  = link_to button(:view), @gallery
+  = link_to button(:back), :galleries

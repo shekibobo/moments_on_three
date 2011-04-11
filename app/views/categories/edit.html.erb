@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @category %> |
-  <%= link_to "View All", categories_path %>
+  <%= link_to button(:view), @category %>
+  <%= link_to button(:back), :categories %>
 </p>
