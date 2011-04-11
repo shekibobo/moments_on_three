@@ -1,9 +1,9 @@
-- form_for @order_item do |f|
+- form_for [ @order, @order_item ] do |f|
   = f.error_messages
   %p
-    = f.label :order_id
+    = f.label :print_id, "Print:"
     %br
-    = f.text_field :order_id
+    = f.select :print_id, Print.all.collect { |p| [ "#{p.description} - #{number_to_currency(p.cost)}", p.id ] }
   %p
     = f.label :quantity
     %br
