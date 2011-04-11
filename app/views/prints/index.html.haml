@@ -8,8 +8,7 @@
     %tr
       %td= print.description
       %td= print.cost
-      %td= link_to 'Show', print
-      %td= link_to 'Edit', edit_print_path(print)
-      %td= link_to 'Destroy', print, :confirm => 'Are you sure?', :method => :delete
+      %td= edit_button_for print
+      %td= destroy_button_for print, "Are you sure?"
 
 %p= link_to "New Print", new_print_path
