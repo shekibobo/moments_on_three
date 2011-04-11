@@ -12,9 +12,7 @@
         = item.print + " " + number_to_currency(item.cost)
 
 
-%p
+.control
   = edit_button_for @order
-  |
   = delete_button_for @order, :confirm => "Are you sure? Your entire order will be lost."
-  |
-  = link_to "View All", orders_path
+  = link_to button(:back), :orders

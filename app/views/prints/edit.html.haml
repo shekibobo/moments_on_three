@@ -3,6 +3,5 @@
 = render 'form'
 
 %p
-  = link_to "Show", print_path(@print)
-  |
-  = link_to "View All", prints_path
+  = link_to buttons(:view, "Show"), @print
+  = link_to buttons(:back, "View All"), :prints

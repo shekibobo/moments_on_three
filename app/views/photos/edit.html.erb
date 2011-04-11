@@ -3,6 +3,6 @@
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", [@gallery, @photo] %> |
-  <%= link_to "View All", gallery_path(@gallery) %>
+  <%= link_to button(:view, "Show"), [@gallery, @photo] %>
+  <%= link_to button(:back, "View All"), @gallery %>
 </p>

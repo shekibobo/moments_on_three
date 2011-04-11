@@ -9,7 +9,5 @@
 
 %p
   = edit_button_for @order, @order_item
-  |
   = delete_button_for @order, @order_item, :confirm => "Are you sure?"
-  |
-  = link_to "View All", order_items_path
+  = link_to button(:back, "View All"), :order_items
