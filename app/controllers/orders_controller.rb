@@ -21,12 +21,12 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    @order = current_user.orders.build
     @order_items = @order.order_items
   end
 
   def create
-    @order = Order.new(params[:order])
+    @order = current_user.orders.new(params[:order])
     if @order.save
       flash[:notice] = "Order created."
       redirect_to @order

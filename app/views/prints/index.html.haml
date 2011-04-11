@@ -9,6 +9,6 @@
       %td= print.description
       %td= number_to_currency print.cost
       %td= edit_button_for print
-      %td= delete_button_for print, "Are you sure?"
+      %td= delete_button_for print, :confirm => "Are you sure?"
 
 %p= link_to "New Print", [:new, :print]
