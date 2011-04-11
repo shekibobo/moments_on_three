@@ -5,7 +5,7 @@
       = like_button_for photo
 
       - if user_signed_in? and current_user.can_purchase? @gallery
-        = add_cart_button_for @gallery, photo
+        = add_cart_button_for [current_order, :order_item], :photo_id => photo.id
 
       - if admin_signed_in?
         = edit_button_for @gallery, photo
