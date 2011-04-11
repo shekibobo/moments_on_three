@@ -10,6 +10,6 @@
   = @order_item.quantity
 
 %p
-  = edit_button_for @order, @order_item
-  = delete_button_for @order, @order_item, :confirm => "Are you sure?"
+  = edit_button_for [ @order, @order_item ]
+  = delete_button_for [ @order, @order_item ]
   = link_to button(:back, "View All"), @order

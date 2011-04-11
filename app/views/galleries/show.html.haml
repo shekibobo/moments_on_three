@@ -15,10 +15,10 @@
   = @gallery.name.humanize
 - if admin_signed_in?
   %span.control
-    = new_button_for @gallery, :photo
+    = new_button_for [ @gallery, :photo ], :alt => "New Photo"
 
-    = edit_button_for @gallery
-    = delete_button_for @gallery, :confirm => "Are you sure? This will delete the entire gallery!"
+    = edit_button_for [ @gallery ]
+    = delete_button_for [ @gallery ], :confirm => "Are you sure? This will delete the entire gallery!"
 
 #photos
   = render 'photos'
@@ -27,7 +27,7 @@
   #sharing
     %h3
       Sharing
-      = new_button_for @gallery, :permission
+      = new_button_for [ @gallery, :permission ], :alt => "Grant Permissions"
 
     - if !@gallery.shared_users.empty?
       %table
@@ -48,6 +48,6 @@
             %td
               = permission.to_purchase? ? "Yes" : "No"
             %td
-              = edit_button_for @gallery, permission
+              = edit_button_for [ @gallery, permission ]
             %td
-              = delete_button_for @gallery, permission, :confirm => "Are you sure you want to revoke this permission?"
+              = delete_button_for [ @gallery, permission ], :confirm => "Are you sure you want to revoke this permission?"
