@@ -1,4 +1,6 @@
 MomentsOnThree::Application.routes.draw do
+  resources :orders
+
   resources :permissions
 
   devise_for :users

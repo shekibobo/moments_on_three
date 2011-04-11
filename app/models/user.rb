@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :shared_galleries, :class_name => 'Gallery',
     :through => :permissions, :foreign_key => 'shared_user_id'
 
+  has_many :orders
+
   def can_share?(gallery)
     allowed = self.permission(gallery)
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_share? )
