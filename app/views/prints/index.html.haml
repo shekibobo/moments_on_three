@@ -1,0 +1,15 @@
+- title "Prints"
+
+%table
+  %tr
+    %th Description
+    %th Cost
+  - for print in @prints
+    %tr
+      %td= print.description
+      %td= print.cost
+      %td= link_to 'Show', print
+      %td= link_to 'Edit', edit_print_path(print)
+      %td= link_to 'Destroy', print, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Print", new_print_path
