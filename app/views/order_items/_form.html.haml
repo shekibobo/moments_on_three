@@ -5,9 +5,9 @@
     %br
     = f.text_field :photo_id
   %p
-    = f.label :print, "Print:"
+    = f.label :print_id, "Print:"
     %br
-    = f.select :print, Print.all.collect { |p| [ "#{p.description} - #{number_to_currency(p.cost)}", p.id ] }
+    = f.select :print_id, Print.all.collect { |p| [ "#{p.description} - #{number_to_currency(p.cost)}", p.id ] }
   %p
     = f.label :quantity
     %br
