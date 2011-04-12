@@ -49,3 +49,22 @@
 #sharing {
   clear: both;
 }
+
+.orders img.order_item {
+  float: left;
+}
+
+.orders ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.orders ul li {
+  display: block;
+  padding: 5px;
+  clear: both;
+}
+
+.orders td, .orders th {
+  padding: 0 5px;
+}
