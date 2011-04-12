@@ -1,10 +1,6 @@
 class OrderItemsController < ApplicationController
   before_filter :get_order
 
-  def show
-    @order_item = @order.order_items.find(params[:id])
-  end
-
   def new
     @order_item = @order.order_items.build
   end
@@ -13,7 +9,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.build(params[:order_item])
     if @order_item.save
       flash[:notice] = "Successfully created order item."
-      redirect_to [ @order ]
+      redirect_to @order
     else
       render :action => 'new'
     end
