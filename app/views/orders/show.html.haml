@@ -1,19 +1,32 @@
 - title "Order"
-
-%p
-  %strong User:
-  = @order.user.email
-
-%p
-  %strong Order Items:
-  %ul
-    - for item in @order_items
-      %li
-        = item.print
-        = number_to_currency(item.print.cost)
-
-
 .control
   = edit_button_for [ @order ]
   = delete_button_for [ @order ], :confirm => "Are you sure you want to clear this order?"
   = link_to button(:back), :orders
+  
+%p
+  %strong User:
+  = @order.user.email
+
+.orders
+  %strong Order Items:
+  %ul
+    - for item in @order_items.order(:photo_id)
+      %li
+        = image_tag item.photo.image.url(:small), :class => "order_item"
+        %table
+          %tr
+            %th Print Size
+            %th Quantity
+            %th Price (each)
+            %th Subtotal
+            %th Controls
+          %tr
+            %td= item.print.description
+            %td= item.quantity
+            %td= number_to_currency item.print.cost
+            %td= number_to_currency item.subtotal
+            %td
+              = edit_button_for [ @order, item ]
+              = delete_button_for [ @order, item ]
+

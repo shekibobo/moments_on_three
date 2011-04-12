@@ -13,7 +13,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.build(params[:order_item])
     if @order_item.save
       flash[:notice] = "Successfully created order item."
-      redirect_to [ @order, @order_item ]
+      redirect_to [ @order ]
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     if @order_item.update_attributes(params[:order_item])
       flash[:notice] = "Successfully updated order item."
-      redirect_to @order_item
+      redirect_to @order
     else
       render :action => 'edit'
     end
