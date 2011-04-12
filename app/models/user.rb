@@ -18,16 +18,16 @@ class User < ActiveRecord::Base
   has_many :orders
 
   def can_share?(gallery)
-    allowed = self.permission(gallery)
+    allowed = permission(gallery)
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_share? )
   end
 
   def can_view?(gallery)
-    can_modify?(gallery) || self.permission(gallery)
+    can_modify?(gallery) || permission(gallery)
   end
 
   def can_vote?(gallery)
-    allowed = self.permission(gallery)
+    allowed = permission(gallery)
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_view? )
   end
 
@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   end
 
   def permission(gallery)
-    self.permissions.find_by_shared_gallery_id(gallery.id)
+    permissions.find_by_shared_gallery_id(gallery.id)
   end
 
   def can_modify?(gallery)
-    self.admin? || gallery.owner?(self)
+    admin? || gallery.owner?(self)
   end
 
 end
