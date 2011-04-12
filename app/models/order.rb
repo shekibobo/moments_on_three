@@ -4,11 +4,11 @@ class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
 
   def subtotal
-    self.order_items.sum { |i| i.subtotal }
+    order_items.collect{|i| i.subtotal}.inject(:+)
   end
 
   def total
     tax = 0.06
-    self.subtotal * (1 + tax)
+    subtotal * (1 + tax)
   end
 end

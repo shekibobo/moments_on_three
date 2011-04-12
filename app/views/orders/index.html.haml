@@ -3,11 +3,17 @@
 %table
   %tr
     %th User
+    %th Subtotal
+    %th Total
+    %th Controls
   - for order in @orders
     %tr
-      %td= order.user_id
-      %td= link_to button(:view, 'Show'), order
-      %td= edit_button_for [ order ]
-      %td= delete_button_for [ order ]
+      %td= order.user.email
+      %td= number_to_currency order.subtotal
+      %td= number_to_currency order.total
+      %td
+        = link_to button(:view, 'Show'), order
+        = edit_button_for [ order ]
+        = delete_button_for [ order ]
 
 %p= link_to "New Order", [:new, :order]

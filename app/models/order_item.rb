@@ -6,6 +6,6 @@ class OrderItem < ActiveRecord::Base
   belongs_to :print
 
   def subtotal
-    self.print.cost * self.quantity
+    print.cost * quantity
   end
 end
