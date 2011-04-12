@@ -7,8 +7,7 @@ module ApplicationHelper
     options[:confirm] ||= "Are you sure?"
     link_to button(:delete, options[:alt]), arr,
       :confirm => options[:confirm],
-      :method => :delete,
-      :remote => true
+      :method => :delete
   end
   alias destroy_button_for delete_button_for
 
