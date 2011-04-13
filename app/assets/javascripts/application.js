@@ -21,12 +21,11 @@ $(document).ready(function() {
    */
   $('.photo').live('hover', function() {
     $(this).contents('.control').fadeToggle();
-  })
+  });
 
-  $('.delete').live('ajax:success', function() {
+  $('.photo .delete').live('ajax:success', function() {
     $(this).closest('.photo').fadeOut();
     $.getScript( window.location.href );
   });
 
-})
-
+});
