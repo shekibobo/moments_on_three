@@ -23,4 +23,10 @@ $(document).ready(function() {
     $(this).contents('.control').fadeToggle();
   })
 
+  $('.delete').live('ajax:success', function() {
+    $(this).closest('.photo').fadeOut();
+    $.getScript( window.location.href );
+  });
+
 })
+

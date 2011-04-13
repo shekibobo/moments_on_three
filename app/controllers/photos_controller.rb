@@ -35,7 +35,10 @@ class PhotosController < ApplicationController
   def destroy
     @photo = @gallery.photos.find(params[:id])
     @photo.destroy
-    redirect_to [ @gallery ], :notice => "Photo removed."
+    respond_to do |format|
+      format.html { redirect_to [ @gallery ], :notice => "Photo removed." }
+      format.js
+    end
   end
 
   private

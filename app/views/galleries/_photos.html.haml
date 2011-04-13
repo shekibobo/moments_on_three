@@ -1,6 +1,6 @@
 = will_paginate @photos
 - for photo in @photos
-  %div{ :class => "photo #{photo.orientation}"}
+  %div{ :class => "photo #{photo.orientation}" }
     .control
       = like_button_for [ photo ]
 
