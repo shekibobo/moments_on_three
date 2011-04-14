@@ -2,8 +2,7 @@
   - unless @category.name == 'theatre'
     - for photo in @photos
       %div{ :class => "photo #{photo.orientation}" }
-        = link_to (image_tag photo.image.url(:small), :class => 'sample'),
-            photo.image.url, :rel => "lightbox[#{@category.name}]"
+        = link_to (image_tag photo.image.url(:small), :class => 'sample'), photo.image.url
   - else
     %ul
       - for gallery in @galleries
