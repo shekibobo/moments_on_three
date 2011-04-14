@@ -70,3 +70,7 @@
 .orders td, .orders th {
   padding: 0 5px;
 }
+
+.pagination a {
+  font-size: 12px;
+}
