@@ -52,9 +52,11 @@
   clear: both;
 }
 
-.orders img.order_item {
+.orders .photo_item {
   float: left;
-}
+  width: 150px;
+  text-align: center;
+  }
 
 .orders ul {
   list-style: none;

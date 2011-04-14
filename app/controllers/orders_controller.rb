@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = @order.order_items
+    @order_items_by_photo = @order.order_items.group_by {|i| i.photo}
   end
 
   def new

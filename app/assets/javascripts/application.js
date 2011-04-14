@@ -28,8 +28,8 @@ $(document).ready(function() {
     $.getScript( window.location.href );
   });
 
-  $('.order_item .delete').live('ajax:success', function() {
-    $(this).closest('li').fadeOut();
+  $('.photo_orders .delete').live('ajax:success', function() {
+    $(this).closest('tr').fadeOut();
   })
 
 });

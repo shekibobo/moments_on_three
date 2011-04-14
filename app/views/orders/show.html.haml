@@ -11,10 +11,10 @@
 .orders
   %strong Order Items:
   %ul
-    - for item in @order_items.order(:photo_id)
-      %li{ :class => "order_item" }
-        = image_tag item.photo.image.url(:small), :class => "order_item"
-        = item.photo.image
+    - for photo, items in @order_items_by_photo
+      %li{ :class => "photo_orders" }
+        .photo_item
+          = image_tag photo.image.url(:small)
         %table
           %tr
             %th Print Size
@@ -22,11 +22,12 @@
             %th Price (each)
             %th Subtotal
             %th Controls
-          %tr
-            %td= item.print.description
-            %td= item.quantity
-            %td= number_to_currency item.print.cost
-            %td= number_to_currency item.subtotal
-            %td
-              = edit_button_for [ @order, item ]
-              = delete_button_for [ @order, item ]
+          - for item in items
+            %tr
+              %td= item.print.description
+              %td= item.quantity
+              %td= number_to_currency item.print.cost
+              %td= number_to_currency item.subtotal
+              %td
+                = edit_button_for [ @order, item ]
+                = delete_button_for [ @order, item ]
