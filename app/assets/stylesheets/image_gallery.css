@@ -17,9 +17,11 @@
   text-align: center;
 }
 
-.button {
+img.button {
+  font-size: 16px;
   margin: 0;
-  padding: 4px 2px;
+  padding: 2px 2px;
+  vertical-align: bottom;
 }
 
 .photo .control {
