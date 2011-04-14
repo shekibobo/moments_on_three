@@ -3,7 +3,7 @@ class OrderItem < ActiveRecord::Base
 
   belongs_to :order
   belongs_to :photo
-  has_one :print
+  belongs_to :print
 
   def subtotal
     print.cost * quantity
