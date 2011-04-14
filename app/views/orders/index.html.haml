@@ -12,7 +12,7 @@
       %td= number_to_currency order.subtotal
       %td= number_to_currency order.total
       %td
-        = link_to button(:view, 'Show'), order
+        = link_to button(:view, :alt => 'Show'), order
         = edit_button_for [ order ]
         = delete_button_for [ order ]
 
