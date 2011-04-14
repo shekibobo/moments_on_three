@@ -17,11 +17,11 @@
   text-align: center;
 }
 
-img.button {
-  font-size: 16px;
+.button {
+  font-size: 12px;
   margin: 0;
   padding: 2px 2px;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .photo .control {

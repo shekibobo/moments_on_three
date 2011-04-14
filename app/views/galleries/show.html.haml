@@ -15,10 +15,10 @@
   = @gallery.name.humanize
 - if admin_signed_in?
   %span.control
-    = new_button_for [ @gallery, :photo ], :alt => "New Photo"
+    = new_button_for [ @gallery, :photo ], :alt => "New Photo", :text => true
 
-    = edit_button_for [ @gallery ]
-    = delete_button_for [ @gallery ], :confirm => "Are you sure? This will delete the entire gallery!"
+    = edit_button_for [ @gallery ], :alt => "Edit Photo", :text => true
+    = delete_button_for [ @gallery ], :confirm => "Are you sure? This will delete the entire gallery!", :alt => "Delete Gallery", :text => true
 
 #photos
   = render 'photos'
