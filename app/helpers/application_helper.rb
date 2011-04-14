@@ -5,6 +5,7 @@ module ApplicationHelper
 
   def delete_button_for(arr, options={})
     options[:confirm] ||= "Are you sure?"
+
     link_to button(:delete, options), arr,
       :confirm => options[:confirm],
       :method => :delete,
