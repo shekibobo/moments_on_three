@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
 
   def subtotal
-    order_items.collect{|i| i.subtotal}.inject(:+)
+    order_items.collect{|i| i.subtotal}.inject(:+) || 0
   end
 
   def total
