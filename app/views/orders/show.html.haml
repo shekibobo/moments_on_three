@@ -12,8 +12,9 @@
   %strong Order Items:
   %ul
     - for item in @order_items.order(:photo_id)
-      %li
+      %li{ :class => "order_item" }
         = image_tag item.photo.image.url(:small), :class => "order_item"
+        = item.photo.image
         %table
           %tr
             %th Print Size

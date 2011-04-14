@@ -28,4 +28,8 @@ $(document).ready(function() {
     $.getScript( window.location.href );
   });
 
+  $('.order_item .delete').live('ajax:success', function() {
+    $(this).closest('li').fadeOut();
+  })
+
 });
