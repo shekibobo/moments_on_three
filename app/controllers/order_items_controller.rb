@@ -32,8 +32,10 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
-    flash[:notice] = "Successfully destroyed order item."
-    redirect_to @order
+    respond_to do |format|
+      format.html { redirect_to @order, :notice => "Print removed." }
+      format.js
+    end
   end
 
   private
