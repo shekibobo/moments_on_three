@@ -52,12 +52,6 @@
   clear: both;
 }
 
-.orders .photo_item {
-  float: left;
-  width: 150px;
-  text-align: center;
-  }
-
 .orders ul {
   list-style: none;
   margin: 0;
@@ -65,12 +59,35 @@
 }
 .orders ul li {
   display: block;
+  margin: 10px;
+  border: 2px solid #ddd;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.orders .photo_head {
+  font-weight: bold;
+  text-align: center;
+  background: #eee;
+  border-bottom: 2px solid #ddd;
+}
+
+.orders .photo_item {
+  float: left;
+  width: 150px;
+  text-align: center;
   padding: 5px;
-  clear: both;
+  }
+
+.orders table {
+  margin-left: 160px;
+  width: 75%;
 }
 
 .orders td, .orders th {
-  padding: 0 5px;
+  padding: 0 auto;
+  text-align: center;
+
 }
 
 .pagination a {
