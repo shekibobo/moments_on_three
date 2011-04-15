@@ -13,6 +13,7 @@
   %ul
     - for photo, items in @order_items_by_photo
       %li{ :class => "photo_orders" }
+        .photo_head= photo.image.original_filename
         .photo_item
           = image_tag photo.image.url(:small)
         %table
@@ -31,3 +32,4 @@
               %td
                 = edit_button_for [ @order, item ]
                 = delete_button_for [ @order, item ]
+        .clear
