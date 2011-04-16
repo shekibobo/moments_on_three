@@ -87,9 +87,12 @@
 .orders td, .orders th {
   padding: 0 auto;
   text-align: center;
-
 }
 
 .pagination a {
   font-size: 12px;
+}
+
+.discount {
+  color: green;
 }

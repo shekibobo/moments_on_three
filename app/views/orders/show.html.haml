@@ -27,7 +27,14 @@
             %tr
               %td= item.print.description
               %td= item.quantity
-              %td= number_to_currency item.print.cost
+              %td
+                - if item.discount?
+                  %span.discount
+                    = number_to_currency item.print.cost * 0.8
+                    (20% off)
+                - else
+                  = number_to_currency item.print.cost
+
               %td= number_to_currency item.subtotal
               %td
                 = edit_button_for [ @order, item ]
