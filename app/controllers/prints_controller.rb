@@ -1,6 +1,6 @@
 class PrintsController < ApplicationController
   before_filter :authenticate_admin!
-  
+
   def index
     @prints = Print.all
   end
@@ -13,7 +13,7 @@ class PrintsController < ApplicationController
     @print = Print.new(params[:print])
     if @print.save
       flash[:notice] = "Successfully created print."
-      redirect_to @print
+      redirect_to :prints
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class PrintsController < ApplicationController
     @print = Print.find(params[:id])
     if @print.update_attributes(params[:print])
       flash[:notice] = "Successfully updated print."
-      redirect_to @print
+      redirect_to :prints
     else
       render :action => 'edit'
     end

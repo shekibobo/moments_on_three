@@ -6,6 +6,18 @@ class OrderItem < ActiveRecord::Base
   belongs_to :print
 
   def subtotal
-    print.cost * quantity
+    # a 20% discount is applied if 6 or more of the same print is ordered
+    print.cost * quantity * (discount? ? 0.8 : 1.0)
   end
+
+  def discount?
+    true if quantity >= 6 || first_30_days?
+  end
+
+  private
+
+  def first_30_days?
+    true if Time.now - photo.gallery.created_at < 30.days
+  end
+
 end

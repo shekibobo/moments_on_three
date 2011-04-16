@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20110411022207) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
+    t.decimal  "subtotal",   :default => 0.0
+    t.decimal  "total",      :default => 0.0
     t.boolean  "committed",  :default => false
     t.boolean  "paid",       :default => false
     t.datetime "created_at"
