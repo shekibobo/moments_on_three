@@ -6,12 +6,11 @@ class CreatePrints < ActiveRecord::Migration
       t.timestamps
     end
 
-    Print.create :description => "Wallets - sheet of 8", :cost => 15.00
-    Print.create :description => "4x6", :cost => 10.00
-    Print.create :description => "5x7", :cost => 15.00
-    Print.create :description => "8x10", :cost => 25.00
-    Print.create :description => "11x14", :cost => 75.00
-    Print.create :description => "Proof CD", :cost => 30.00
+    Print.create :description => "Wallets - Sheet of 8", :cost => 15.00
+    Print.create :description => "4 x 6", :cost => 10.00
+    Print.create :description => "5 x 7", :cost => 15.00
+    Print.create :description => "8 x 10", :cost => 25.00
+    Print.create :description => "11 x 14", :cost => 75.00
   end
 
   def self.down
