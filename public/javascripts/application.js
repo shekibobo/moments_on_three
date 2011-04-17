@@ -22,7 +22,7 @@ $(document).ready(function() {
     $.getScript( window.location.href );
   });
 
-  $('.photo_orders .delete').live('ajax:success', function() {
+  $('tr .delete').live('ajax:success', function() {
     $(this).closest('tr').fadeOut();
   })
 
