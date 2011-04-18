@@ -13,9 +13,9 @@
   %ul
     - for photo, items in @order_items_by_photo
       %li{ :class => "photo_orders" }
-        .photo_head= photo.image.original_filename
+        .photo_head= photo.image.original_filename unless photo.nil?
         .photo_item
-          = image_tag photo.image.url(:small)
+          = image_tag photo.image.url(:small) unless photo.nil?
         %table
           %tr
             %th Print Size
