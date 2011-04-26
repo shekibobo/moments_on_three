@@ -1,7 +1,10 @@
 - form_for [ @order, @order_item ] do |f|
   = f.error_messages
   %p
+    = f.label :photo_id
+    %br
     = image_tag @order_item.photo.image.url(:small) unless @order_item.photo.nil?
+    = f.hidden_field :photo_id
   %p
     = f.label :print_id, "Print:"
     %br
