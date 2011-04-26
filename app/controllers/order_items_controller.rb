@@ -2,11 +2,11 @@ class OrderItemsController < ApplicationController
   before_filter :get_order
 
   def new
-    @order_item = @order.order_items.build
+    @order_item = @order.order_items.build(params)
   end
 
   def create
-    @order_item = @order.order_items.build(params[:order_item])
+    @order_item = @order.order_items.build(params)
     if @order_item.save
       @order.save
       flash[:notice] = "Successfully created order item."
