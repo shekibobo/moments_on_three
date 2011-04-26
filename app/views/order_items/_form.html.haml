@@ -2,9 +2,6 @@
   = f.error_messages
   %p
     = image_tag @order_item.photo.image.url(:small) unless @order_item.photo.nil?
-    = f.label :photo_id
-    %br
-    = f.select :photo_id, Photo.all.collect {|p| [ "#{p.image.original_filename}", p.id]}
   %p
     = f.label :print_id, "Print:"
     %br
