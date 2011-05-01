@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1'
 gem 'haml'
+gem 'sass'
 
 group :assets do
   gem 'sass-rails'
@@ -32,7 +33,7 @@ end
 gem 'nifty-generators', '>= 0.4.0'
 
 # Required for gallery functionality
-gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip'#, :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rubyzip', ">= 0.9.4"
 gem 'will_paginate', :git => 'git@github.com:bridgeutopia/will_paginate.git', :branch => 'rails3'
 gem 'acts-as-taggable-on'
@@ -44,7 +45,7 @@ gem 'devise'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
