@@ -5,17 +5,17 @@ class CategoriesControllerTest < ActionController::TestCase
     get :index
     assert_template 'index'
   end
-  
+
   def test_show
     get :show, :id => Category.first
     assert_template 'show'
   end
-  
+
   def test_new
     get :new
     assert_template 'new'
   end
-  
+
   def test_create_invalid
     Category.any_instance.stubs(:valid?).returns(false)
     post :create
@@ -27,12 +27,12 @@ class CategoriesControllerTest < ActionController::TestCase
     post :create
     assert_redirected_to category_url(assigns(:category))
   end
-  
+
   def test_edit
     get :edit, :id => Category.first
     assert_template 'edit'
   end
-  
+
   def test_update_invalid
     Category.any_instance.stubs(:valid?).returns(false)
     put :update, :id => Category.first
@@ -44,7 +44,7 @@ class CategoriesControllerTest < ActionController::TestCase
     put :update, :id => Category.first
     assert_redirected_to category_url(assigns(:category))
   end
-  
+
   def test_destroy
     category = Category.first
     delete :destroy, :id => category
