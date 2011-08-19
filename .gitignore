@@ -11,3 +11,4 @@ config/deploy.rb
 config/deploy
 
 .rvmrc*
+*.swp
