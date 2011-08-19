@@ -9,3 +9,5 @@ public/assets/galleries
 Capfile
 config/deploy.rb
 config/deploy
+
+.rvmrc*
