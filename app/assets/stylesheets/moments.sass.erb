@@ -1,0 +1,152 @@
+=gradient($from, $to)
+  /* fallback/image non-cover color */
+  background-color: $from
+
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to)
+
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to))
+
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to)
+
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to)
+
+html
+  min-height: 100%
+
+
+body
+  margin: 0
+  padding: 0
+  background-color: #545454 /* #213849 */
+  +gradient(#666666, #2b2b2b)
+  font-size: 0.7em
+
+
+  &.admin
+    background: orange
+    +gradient(orange, black)
+
+
+a
+  text-decoration: none
+  font-weight: bold
+  color: #213849
+
+
+  &:hover
+    color: #657b8c
+
+
+#container
+  width: 1000px
+  margin: 0 auto
+  padding: 0
+  border: none
+
+  -moz-box-shadow: 0px -40px 40px #000
+  -webkit-box-shadow: 0px -40px 40px #000
+  box-shadow: 0px -40px 40px #000
+
+
+
+#header
+  margin: 0
+  padding: 0
+  background-image: url(<%=asset_path('branding_logo.jpg')%>)
+
+  h1 a
+    height: 180px
+    width: 1000px
+    display: block
+    text-indent: -9999px
+
+
+#contents
+  margin: 0
+  padding: 20px 40px
+
+
+#footer
+  text-align:			center
+  font-size:			x-small
+  color:				  #222222
+  margin-top:			10px
+  margin-bottom:	0px
+  clear:			  	both
+  +gradient(#ffffff, #b1d945)
+
+#contact
+  width: 						600px	/* forcing the size so it fits centered */
+  margin:				    0px auto
+  padding:			    0px
+  text-align:       center
+
+
+  a
+    text-decoration:	none
+    color:				#222222
+
+
+  li
+    color:            #222222
+    list-style-type:	none
+    display:			    inline
+    font-size:			  1.2em
+    line-height:		  2em
+    padding-left:		  1em
+    padding-right:		1em
+
+
+  &:not(:last-child)
+    border-right: solid thin #222222
+
+
+#nav
+  +gradient(#b1d945, #ffffff)
+  color: #222222
+  text-align: center
+
+  a
+    color: #222222
+    text-decoration: none
+    font-weight: bold
+
+
+    &:hover
+      color: #666666
+
+ul#nav_list
+  li
+    list-style-type: none
+    display: inline
+    font-size: 1em
+    line-height: 2em
+    padding: 0 1em
+
+
+  &:not(:last-child)
+    border-right: solid thin #ffffff
+
+
+
+
+#user_nav
+  position: relative
+  right: 0
+  float: right
+  padding: 5px 5px 5px 0
+
+
+/* override */
+#flash_notice
+  background-color: #acc4dd
+  border: solid 1px #243c55
+
+
+.right
+  float: right
+

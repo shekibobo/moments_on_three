@@ -12,3 +12,5 @@ config/deploy
 
 .rvmrc*
 *.swp
+.DS_Store
+

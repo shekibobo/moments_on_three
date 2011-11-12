@@ -1,0 +1,13 @@
+= form_for [@gallery, @photo], :html => { :multipart => true } do |f|
+  = f.error_messages
+  %p
+    - if @photo.image?
+      = image_tag @photo.image.url
+      = link_to @photo.image.url, @photo.image.url
+
+    = f.label :image
+    = f.file_field :image
+  %p
+    = f.label :tag_list
+    = f.text_field :tag_list
+  %p= f.submit
