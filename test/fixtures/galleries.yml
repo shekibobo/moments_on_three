@@ -1,15 +1,15 @@
-one:
+senior_gallery:
   name: Gallery 1
-  owner_id: 1
+  owner_id: molly
   public: true
   shoot_date: 2010-12-16
   description: MyText
-  category: 1
+  category: category_seniors
 
-two:
+wedding_gallery:
   name: Gallery 2
-  owner_id: 1
+  owner_id: owen
   public: true
   shoot_date: 2010-12-16
   description: MyText
-  category: 1
+  category: category_weddings

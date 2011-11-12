@@ -1,13 +1,14 @@
-one:
-  shared_user_id: 1
-  shared_gallery_id: 1
+owen_senior_gallery_permissions:
+  shared_user_id: owen
+  shared_gallery_id: senior_gallery
   to_vote: false
   to_share: false
   to_purchase: false
 
-two:
-  shared_user_id: 1
-  shared_gallery_id: 1
+david_wedding_gallery_permissions:
+  shared_user_id: david
+  shared_gallery_id: wedding_gallery
   to_vote: false
   to_share: false
   to_purchase: false
+

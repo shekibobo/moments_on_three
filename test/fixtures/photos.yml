@@ -2,6 +2,7 @@ one:
   gallery_id: 1
   name: MyString
   rating: 1
+  orientation: portrait
 
 two:
   gallery_id: 1

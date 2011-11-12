@@ -1,5 +1,5 @@
-one:
-  name: MyString
+category_seniors:
+  name: Seniors
 
-two:
-  name: MyString
+category_weddings:
+  name: Weddings
