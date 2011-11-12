@@ -2,7 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1'
 gem 'haml'
-gem 'sass'
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,9 +32,6 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rubyzip', ">= 0.9.4"
 gem 'will_paginate', :git => 'git@github.com:bridgeutopia/will_paginate.git', :branch => 'rails3'
 gem 'acts-as-taggable-on'
-
-gem 'jquery-rails'
-gem 'uglifier'
 
 # For Users
 gem 'devise'
