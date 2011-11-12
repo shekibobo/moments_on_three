@@ -15,6 +15,7 @@ end
 group :production do
   gem 'mysql2'
 end
+gem 'ruby-debug19'
 
 # for better generation features
 gem 'nifty-generators', '>= 0.4.0'
