@@ -36,7 +36,7 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
     respond_to do |format|
       format.html { redirect_to @order, :notice => "Print removed." }
-      format.js
+      format.js { render :nothing => true }
     end
   end
 

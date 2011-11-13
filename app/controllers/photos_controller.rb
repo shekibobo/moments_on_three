@@ -37,7 +37,7 @@ class PhotosController < ApplicationController
     @photo.destroy
     respond_to do |format|
       format.html { redirect_to [ @gallery ], :notice => "Photo removed." }
-      format.js
+      format.js { render :nothing => true }
     end
   end
 
