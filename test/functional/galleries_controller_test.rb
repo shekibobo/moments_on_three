@@ -36,7 +36,7 @@ class GalleriesControllerTest < ActionController::TestCase
     sign_in @admin
     Gallery.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to gallery_url(assigns(:gallery))
+    assert_redirected_to [:edit, (assigns(:gallery))]
   end
 
   def test_edit_for_admin

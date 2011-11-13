@@ -1,13 +1,13 @@
 owen_senior_gallery_permissions:
-  shared_user_id: owen
-  shared_gallery_id: senior_gallery
+  shared_user: owen
+  shared_gallery: senior_gallery
   to_vote: false
   to_share: false
   to_purchase: false
 
 david_wedding_gallery_permissions:
-  shared_user_id: david
-  shared_gallery_id: wedding_gallery
+  shared_user: david
+  shared_gallery: wedding_gallery
   to_vote: false
   to_share: false
   to_purchase: false

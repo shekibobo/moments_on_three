@@ -22,7 +22,7 @@ end
 group :production do
   gem 'mysql2'
 end
-gem 'ruby-debug19'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 # for better generation features
 gem 'nifty-generators', '>= 0.4.0'
