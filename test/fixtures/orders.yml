@@ -1,5 +1,7 @@
-one:
-  user_id: 1
+andrew_seniors:
+  user: andrew
+  committed: false
 
-two:
-  user_id: 1
+molly_seniors:
+  user: molly
+  committed: true

@@ -1,7 +1,7 @@
-one:
-  description: MyString
+senior:
+  description: Senior Print
   cost: 9.99
 
-two:
-  description: MyString
+wedding:
+  description: Wedding Print
   cost: 9.99

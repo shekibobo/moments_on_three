@@ -1,7 +1,7 @@
-one:
-  order_id: 1
+molly_seniors_1:
+  order: molly_seniors
   quantity: 1
 
-two:
-  order_id: 1
+andrew_seniors_1:
+  order: andrew_seniors
   quantity: 1

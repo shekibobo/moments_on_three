@@ -1,54 +1,54 @@
 require 'test_helper'
 
 class PrintsControllerTest < ActionController::TestCase
-  def test_index
+  def setup
+    @print = prints(:senior)
+    sign_in users(:admin)
+  end
+
+  test "index" do
     get :index
     assert_template 'index'
   end
-  
-  def test_show
-    get :show, :id => Print.first
-    assert_template 'show'
-  end
-  
-  def test_new
+
+  test "new" do
     get :new
     assert_template 'new'
   end
-  
-  def test_create_invalid
+
+  test "create invalid" do
     Print.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
-  def test_create_valid
+  test "create valid" do
     Print.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to print_url(assigns(:print))
+    assert_redirected_to prints_url
   end
-  
-  def test_edit
-    get :edit, :id => Print.first
-    assert_template 'edit'
-  end
-  
-  def test_update_invalid
-    Print.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Print.first
+
+  test "edit" do
+    get :edit, :id => @print
     assert_template 'edit'
   end
 
-  def test_update_valid
-    Print.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Print.first
-    assert_redirected_to print_url(assigns(:print))
+  test "update invalid" do
+    Print.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => @print
+    assert_template 'edit'
   end
-  
-  def test_destroy
-    print = Print.first
-    delete :destroy, :id => print
+
+  test "update valid" do
+    Print.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => @print
     assert_redirected_to prints_url
-    assert !Print.exists?(print.id)
+  end
+
+  test "destroy" do
+    print = @print
+    delete :destroy, :id => @print
+    assert_redirected_to prints_url
+    assert !Print.exists?(@print.id)
   end
 end

@@ -5,8 +5,6 @@ MomentsOnThree::Application.routes.draw do
     resources :order_items
   end
 
-  resources :permissions
-
   devise_for :users
 
   resources :categories

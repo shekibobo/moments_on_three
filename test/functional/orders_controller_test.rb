@@ -1,54 +1,61 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
-  def test_index
+
+  def setup
+    @order = orders(:andrew_seniors)
+    sign_in @order.user
+  end
+
+  test "index" do
     get :index
     assert_template 'index'
   end
-  
-  def test_show
-    get :show, :id => Order.first
+
+  test "show" do
+    get :show, :id => @order
     assert_template 'show'
   end
-  
-  def test_new
+
+  test "new" do
     get :new
     assert_template 'new'
   end
-  
-  def test_create_invalid
+
+  test "create invalid order" do
     Order.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
-  def test_create_valid
+  test "create valid order" do
     Order.any_instance.stubs(:valid?).returns(true)
+    Order.any_instance.stubs(:save).returns(true)
     post :create
-    assert_redirected_to order_url(assigns(:order))
+    assert_redirected_to assigns(:order)
   end
-  
-  def test_edit
-    get :edit, :id => Order.first
-    assert_template 'edit'
-  end
-  
-  def test_update_invalid
-    Order.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Order.first
+
+  test "edit order" do
+    get :edit, :id => @order
     assert_template 'edit'
   end
 
-  def test_update_valid
-    Order.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Order.first
-    assert_redirected_to order_url(assigns(:order))
+  test "update invalid" do
+    Order.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => @order
+    assert_template 'edit'
   end
-  
-  def test_destroy
-    order = Order.first
-    delete :destroy, :id => order
+
+  test "update valid" do
+    Order.any_instance.stubs(:valid?).returns(true)
+    Order.any_instance.stubs(:update_attributes).returns(true)
+    put :update, :id => @order
+    assert_redirected_to assigns(:order)
+  end
+
+  test "destroy" do
+    delete :destroy, :id => @order
     assert_redirected_to orders_url
-    assert !Order.exists?(order.id)
+    assert !Order.exists?(@order.id)
   end
 end
