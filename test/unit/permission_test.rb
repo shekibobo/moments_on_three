@@ -1,7 +1,17 @@
 require 'test_helper'
 
 class PermissionTest < ActiveSupport::TestCase
-  def test_should_be_valid
-    assert Permission.new.valid?
+  context "permission relationships" do
+    def setup
+      @permission = permissions(:owen_senior_gallery_permissions)
+    end
+
+    test "permissions define a shared gallery" do
+      assert_not_nil @permission.shared_gallery
+    end
+
+    test "permissions define a shared user" do
+      assert_not_nil @permission.shared_user
+    end
   end
 end
