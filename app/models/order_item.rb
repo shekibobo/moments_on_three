@@ -11,13 +11,13 @@ class OrderItem < ActiveRecord::Base
   end
 
   def discount?
-    true if quantity >= 6 || first_30_days?
+    quantity >= 6 || first_30_days?
   end
 
   private
 
   def first_30_days?
-    true if Time.now - photo.gallery.created_at < 30.days
+    Time.now - photo.gallery.created_at < 30.days
   end
 
 end

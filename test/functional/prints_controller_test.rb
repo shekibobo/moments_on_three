@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PrintsControllerTest < ActionController::TestCase
   def setup
-    @print = prints(:senior)
+    @print = prints(:wallets)
     sign_in users(:admin)
   end
 

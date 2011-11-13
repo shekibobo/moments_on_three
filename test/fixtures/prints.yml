@@ -1,7 +1,7 @@
-senior:
-  description: Senior Print
+eight_by_ten:
+  description: '8 x 10'
   cost: 9.99
 
-wedding:
-  description: Wedding Print
+wallets:
+  description: 'Wallets (8)'
   cost: 9.99
