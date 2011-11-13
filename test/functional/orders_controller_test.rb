@@ -8,6 +8,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "index" do
+    sign_in users(:admin)
     get :index
     assert_template 'index'
   end
