@@ -2,11 +2,9 @@ senior_photo_one:
   gallery: senior_gallery
   name: Senior Portrait
   rating: 1
-  orientation: portrait
 
 wedding_photo_one:
   gallery: wedding_gallery
   name: Wedding Photo
   rating: 1
-  orientation: landscape
 

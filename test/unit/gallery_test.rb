@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GalleryTest < ActiveSupport::TestCase
-  def test_should_be_valid
+  test "new gallery should be valid" do
     assert Gallery.new.valid?
   end
 end

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class PermissionTest < ActiveSupport::TestCase
+  test "new permission is valid" do
+    assert Permission.new.valid?
+  end
+
   context "permission relationships" do
     def setup
       @permission = permissions(:owen_senior_gallery_permissions)

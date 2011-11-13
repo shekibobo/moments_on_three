@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => 'image/jpeg'
 
-  before_create :set_orientation
+  before_save :set_orientation
 
   attr_accessible :gallery_id, :name, :rating, :image, :tag_list, :orientation
 
