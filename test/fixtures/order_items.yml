@@ -1,7 +1,12 @@
 molly_seniors_1:
   order: molly_seniors
+  photo: senior_photo_one
   quantity: 1
+  print: senior
 
 andrew_seniors_1:
   order: andrew_seniors
+  photo: wedding_photo_one
   quantity: 1
+  print: wedding
+
