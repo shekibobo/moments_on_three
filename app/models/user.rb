@@ -26,10 +26,11 @@ class User < ActiveRecord::Base
 
   def can_vote?(gallery)
     allowed = self.permission(gallery)
-    can_modify?(gallery) || ( !allowed.nil? && allowed.to_view? )
+    can_modify?(gallery) || ( !allowed.nil? && allowed.to_vote? )
   end
 
-  def can_purchase(gallery)
+  def can_purchase?(gallery)
+    allowed = self.permission(gallery)
     can_modify?(gallery) || ( !allowed.nil? && allowed.to_purchase? )
   end
 

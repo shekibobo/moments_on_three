@@ -40,8 +40,6 @@ gem 'acts-as-taggable-on'
 # For Users
 gem 'devise'
 
-
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
