@@ -12,3 +12,9 @@ david_wedding_gallery_permissions:
   to_share: false
   to_purchase: false
 
+andrew_senior_gallery_permissions:
+  shared_user: andrew
+  shared_gallery: senior_gallery
+  to_vote: true
+  to_share: true
+  to_purchase: true

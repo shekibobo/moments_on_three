@@ -8,58 +8,58 @@ class GalleriesControllerTest < ActionController::TestCase
     @unshared_user = users(:owen)
   end
 
-  def test_index
+  test "index" do
     get :index
     assert_template 'index'
   end
 
-  def test_show_for_admin
+  test "admin can view a gallery" do
     sign_in @admin
     get :show, :id => Gallery.first
     assert_template 'show'
   end
 
-  def test_new_for_admin
+  test "admin can create a new gallery" do
     sign_in @admin
     get :new
     assert_template 'new'
   end
 
-  def test_create_invalid_for_admin
+  test "admin creates an invalid gallery" do
     sign_in @admin
     Gallery.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
-  def test_create_valid_for_admin
+  test "admin creates a valid gallery" do
     sign_in @admin
     Gallery.any_instance.stubs(:valid?).returns(true)
     post :create
     assert_redirected_to [:edit, (assigns(:gallery))]
   end
 
-  def test_edit_for_admin
+  test "admin can edit a gallery" do
     sign_in @admin
     get :edit, :id => Gallery.first
     assert_template 'edit'
   end
 
-  def test_update_invalid_for_admin
+  test "admin updates a gallery with invalid data" do
     sign_in @admin
     Gallery.any_instance.stubs(:valid?).returns(false)
     put :update, :id => Gallery.first
     assert_template 'edit'
   end
 
-  def test_update_valid_for_admin
+  test "admin successfully updates a gallery" do
     sign_in @admin
     Gallery.any_instance.stubs(:valid?).returns(true)
     put :update, :id => Gallery.first
     assert_redirected_to gallery_url(assigns(:gallery))
   end
 
-  def test_destroy_for_admin
+  test "admin destroys a gallery" do
     sign_in @admin
     gallery = Gallery.first
     delete :destroy, :id => gallery

@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1'
 gem 'haml'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
@@ -12,8 +13,11 @@ gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development do
+group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
+
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'contest', ">=0.1.3"
 
   # Use mongrel as the web server
   gem 'sho-mongrel'
@@ -22,7 +26,7 @@ end
 group :production do
   gem 'mysql2'
 end
-gem 'ruby-debug19', :require => 'ruby-debug'
+
 
 # for better generation features
 gem 'nifty-generators', '>= 0.4.0'
