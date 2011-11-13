@@ -1,6 +1,4 @@
 MomentsOnThree::Application.routes.draw do
-  resources :permissions
-
   devise_for :users
 
   resources :categories

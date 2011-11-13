@@ -20,7 +20,7 @@ class Photo < ActiveRecord::Base
 
   def name
     super
-    @name = image.original_filename.gsub(/(std)?\..*/, '').humanize
+    @name ||= image.original_filename.gsub(/(std)?\..*/, '').humanize
   end
 
   def category

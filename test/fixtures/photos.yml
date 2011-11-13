@@ -1,10 +1,12 @@
-one:
-  gallery_id: 1
-  name: MyString
+senior_photo_one:
+  gallery: senior_gallery
+  name: Senior Portrait
   rating: 1
   orientation: portrait
 
-two:
-  gallery_id: 1
-  name: MyString
+wedding_photo_one:
+  gallery: wedding_gallery
+  name: Wedding Photo
   rating: 1
+  orientation: landscape
+
