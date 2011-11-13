@@ -20,9 +20,10 @@ class OrderItemsControllerTest < ActionController::TestCase
   end
 
   def test_create_valid
-    OrderItem.any_instance.stubs(:print).returns(prints(:wallets))
     OrderItem.any_instance.stubs(:valid?).returns(true)
-    post :create, :order_id => @order, :photo_id => @photo.id
+    OrderItem.any_instance.stubs(:photo).returns(@photo)
+    OrderItem.any_instance.stubs(:print).returns(prints(:wallets))
+    post :create, :order_id => @order
     assert_redirected_to assigns(:order)
   end
 
